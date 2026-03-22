@@ -604,12 +604,13 @@ function reviewPastSession(dayIdx){
   if(sub)sub.textContent=`Day ${s.day} · ${s.date} · ${s.score}%`;
   const body=document.getElementById('review-body');
   const wrong=s.wrong||[];
+  const hasWrongData=Array.isArray(s.wrong);
   if(!wrong.length){
-    body.innerHTML=`<div style="padding:32px 18px;text-align:center">
-      <div style="font-size:48px;margin-bottom:12px">🎉</div>
-      <div style="font-size:20px;font-weight:700;color:var(--success)">No mistakes on Day ${s.day}!</div>
-      <div style="font-size:14px;color:var(--gray);margin-top:8px">${s.date} · Score: ${s.score}%</div>
-    </div>`;
+    const msg=hasWrongData
+      ?`<div style="font-size:20px;font-weight:700;color:var(--success)">No mistakes on Day ${s.day}! 🎉</div><div style="font-size:14px;color:var(--gray);margin-top:8px">${s.date} · Score: ${s.score}%</div>`
+      :`<div style="font-size:20px;font-weight:700;color:var(--navy)">No mistake details saved</div>
+        <div style="font-size:14px;color:var(--gray);margin-top:10px;line-height:1.6">This session was recorded before mistake-tracking was added.<br>Your score was <strong>${s.score}%</strong> on ${s.date}.<br><br>All future sessions will save full mistake details! 📝</div>`;
+    body.innerHTML=`<div style="padding:32px 18px;text-align:center"><div style="font-size:48px;margin-bottom:12px">${hasWrongData?'🎉':'📋'}</div>${msg}</div>`;
     showScreen('review');return;
   }
   const infoBar=`<div style="padding:12px 18px 0"><div style="background:var(--navy);color:white;border-radius:10px;padding:12px 14px;font-size:13px">📅 <strong>Day ${s.day}</strong> · ${s.date} · Score: ${s.score}% · ${wrong.length} mistake${wrong.length!==1?'s':''}</div></div>`;
