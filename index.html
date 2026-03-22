@@ -53,10 +53,20 @@ html,body{min-height:100vh;background:var(--light);font-family:-apple-system,Bli
 .day-dot.today{background:var(--gold);color:var(--navy)}
 .day-dot.perfect{background:var(--red);color:var(--white)}
 
+/* ── HISTORY ── */
+.history-list{margin-top:8px}
+.history-item{background:var(--white);border-radius:12px;padding:14px;margin-bottom:8px;display:flex;align-items:center;gap:12px;cursor:pointer;border:1.5px solid var(--lightgray);transition:border-color .15s}
+.history-item:active{border-color:var(--blue)}
+.hist-day{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.hist-info{flex:1;min-width:0}
+.hist-title{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hist-sub{font-size:12px;color:var(--gray);margin-top:2px}
+.hist-score{font-size:22px;font-weight:900;flex-shrink:0}
+
 /* ── FOCUS PICKER ── */
-.picker-body{padding:18px;flex:1}
+.picker-body{padding:18px;flex:1;overflow-y:auto}
 .picker-title{font-size:20px;font-weight:800;margin-bottom:6px}
-.picker-sub{font-size:14px;color:var(--gray);margin-bottom:20px}
+.picker-sub{font-size:14px;color:var(--gray);margin-bottom:16px}
 .pool-btn{display:flex;align-items:center;gap:12px;background:var(--white);border:2px solid var(--lightgray);border-radius:14px;padding:16px;width:100%;cursor:pointer;margin-bottom:10px;font-size:15px;font-weight:600;text-align:left;transition:border-color .15s}
 .pool-btn:active{border-color:var(--blue)}
 .pool-icon{font-size:26px;width:40px;text-align:center}
@@ -64,6 +74,9 @@ html,body{min-height:100vh;background:var(--light);font-family:-apple-system,Bli
 .pool-name{font-weight:700;font-size:15px}
 .pool-desc{font-size:12px;color:var(--gray);margin-top:2px}
 .pool-count{font-size:12px;color:var(--blue);font-weight:700}
+.pool-btn.mistakes{border-color:var(--red);background:#FFF8F8}
+.pool-btn.mistakes:active{border-color:var(--red)}
+.pool-separator{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin:14px 0 10px;padding-top:14px;border-top:1px solid var(--lightgray)}
 .back-btn{background:none;border:none;color:var(--blue);font-size:15px;font-weight:600;cursor:pointer;padding:10px 0;display:flex;align-items:center;gap:6px;margin-bottom:8px}
 
 /* ── QUIZ SCREEN ── */
@@ -123,7 +136,6 @@ html,body{min-height:100vh;background:var(--light);font-family:-apple-system,Bli
 .next-btn{display:none;background:var(--navy);color:var(--white);border:none;border-radius:12px;padding:16px;font-size:16px;font-weight:700;cursor:pointer;margin-top:16px;width:100%;transition:opacity .1s}
 .next-btn.visible{display:block}
 .next-btn:active{opacity:.85}
-.hint-btn{background:none;border:none;color:var(--blue);font-size:13px;cursor:pointer;padding:4px 0;font-weight:600}
 
 /* ── RESULTS SCREEN ── */
 .results-hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:var(--white);padding:28px 20px 24px;text-align:center}
@@ -131,7 +143,6 @@ html,body{min-height:100vh;background:var(--light);font-family:-apple-system,Bli
 .result-pct{font-size:18px;font-weight:600;margin-top:4px}
 .result-label{font-size:13px;opacity:.7;margin-top:6px}
 .result-day{font-size:12px;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 12px;display:inline-block;margin-top:12px}
-
 .results-body{padding:18px;flex:1}
 .breakdown-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:12px}
 .breakdown-row{margin-bottom:10px}
@@ -140,7 +151,6 @@ html,body{min-height:100vh;background:var(--light);font-family:-apple-system,Bli
 .br-score{font-size:13px;font-weight:700;color:var(--blue)}
 .br-bar{height:8px;background:var(--lightgray);border-radius:4px;overflow:hidden}
 .br-fill{height:100%;border-radius:4px;transition:width .6s ease}
-
 .results-actions{padding:0 18px 24px;display:flex;flex-direction:column;gap:10px}
 .action-btn{padding:16px;border-radius:12px;border:none;font-size:15px;font-weight:700;cursor:pointer;transition:opacity .1s}
 .action-btn:active{opacity:.85}
@@ -149,9 +159,8 @@ html,body{min-height:100vh;background:var(--light);font-family:-apple-system,Bli
 .action-btn.outline-btn{background:transparent;border:2px solid var(--navy);color:var(--navy)}
 
 /* ── REVIEW SCREEN ── */
-.review-body{padding:18px;flex:1;overflow-y:auto}
-.review-card{background:var(--white);border-radius:14px;padding:16px;margin-bottom:14px;border-left:4px solid var(--error)}
-.review-card.correct-card{border-left-color:var(--success)}
+.review-body{padding:0 0 24px;flex:1;overflow-y:auto}
+.review-card{background:var(--white);border-radius:14px;padding:16px;margin:12px 18px 0;border-left:4px solid var(--error)}
 .rc-pool{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:6px}
 .rc-q{font-size:15px;font-weight:700;margin-bottom:10px;line-height:1.4}
 .rc-answer-row{display:flex;gap:8px;align-items:flex-start;margin-bottom:4px;font-size:13px}
@@ -161,6 +170,12 @@ html,body{min-height:100vh;background:var(--light);font-family:-apple-system,Bli
 .rc-wrong-val{color:var(--error)}
 .rc-right-val{color:var(--success)}
 .rc-exp{font-size:13px;color:var(--gray);margin-top:8px;line-height:1.4;border-top:1px solid var(--lightgray);padding-top:8px}
+
+/* ── SHARE CARD ── */
+.share-card{background:var(--light);border-radius:14px;padding:16px;border:1.5px solid var(--lightgray);margin:16px 18px 0}
+.share-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:10px}
+.share-text{font-family:monospace;font-size:12px;background:var(--white);padding:12px;border-radius:8px;line-height:1.7;white-space:pre-wrap;color:var(--navy);max-height:200px;overflow-y:auto}
+.share-copy-btn{background:var(--blue);color:var(--white);border:none;border-radius:8px;padding:10px 16px;font-size:14px;font-weight:700;cursor:pointer;margin-top:10px;width:100%}
 
 /* ── TOAST ── */
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--navy);color:var(--white);padding:12px 20px;border-radius:24px;font-size:14px;font-weight:600;transition:transform .3s;z-index:100;white-space:nowrap}
@@ -176,6 +191,7 @@ html,body{min-height:100vh;background:var(--light);font-family:-apple-system,Bli
 </head>
 <body>
 <div id="app">
+
   <!-- HOME -->
   <div id="screen-home" class="screen active">
     <div class="home-hero">
@@ -204,6 +220,10 @@ html,body{min-height:100vh;background:var(--light);font-family:-apple-system,Bli
         <div class="section-title">Your 100 Days</div>
         <div class="grid-100" id="day-grid"></div>
       </div>
+      <div style="margin-top:22px">
+        <div class="section-title">Session History</div>
+        <div class="history-list" id="history-list"></div>
+      </div>
     </div>
   </div>
 
@@ -213,6 +233,12 @@ html,body{min-height:100vh;background:var(--light);font-family:-apple-system,Bli
       <button class="back-btn" onclick="showScreen('home')">‹ Back</button>
       <div class="picker-title">Focus Mode</div>
       <div class="picker-sub">Choose a topic to practice</div>
+      <button class="pool-btn mistakes" onclick="startMistakesMix()">
+        <div class="pool-icon">🔥</div>
+        <div class="pool-info"><div class="pool-name">Mistakes Mix</div><div class="pool-desc">Your most-missed questions from all past sessions</div></div>
+        <div class="pool-count" id="mistakes-count">0 q</div>
+      </button>
+      <div class="pool-separator">Topic Drills</div>
       <button class="pool-btn" onclick="startFocus('grammar')">
         <div class="pool-icon">⚙️</div>
         <div class="pool-info"><div class="pool-name">Grammar</div><div class="pool-desc">Tenses · Subjunctive · Conditionals · Si-clauses</div></div>
@@ -279,27 +305,25 @@ html,body{min-height:100vh;background:var(--light);font-family:-apple-system,Bli
     <div class="header" style="position:relative">
       <div>
         <div class="header-title">Review</div>
-        <div class="header-sub">Session mistakes &amp; explanations</div>
+        <div class="header-sub" id="review-sub">Session mistakes &amp; explanations</div>
       </div>
-      <button onclick="showScreen('results')" style="background:rgba(255,255,255,.15);border:none;color:white;border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px;font-weight:600">Back</button>
+      <button onclick="reviewGoBack()" style="background:rgba(255,255,255,.15);border:none;color:white;border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px;font-weight:600">Back</button>
     </div>
     <div class="review-body" id="review-body"></div>
   </div>
-</div>
 
+</div>
 <div class="toast" id="toast"></div>
 
 <script>
 // ═══════════════════════════════════════════════════
 // QUESTION BANK — 160 questions from Ofer's real classes
-// ═══════════════════════════════════════════════════
-// Types: mc (multiple choice), fill (type the answer)
 // Pools: grammar, vocabulary, expression, context, verb
-
+// ═══════════════════════════════════════════════════
 const QB = [
 // ─── GRAMMAR (45) ───────────────────────────────
 {id:1,pool:'grammar',type:'mc',q:'¿Cuál oración usa el <em>pretérito perfecto</em> correctamente?',opts:['Fui al cine el mes pasado','He ido al cine esta semana','Fui al cine ayer por la tarde','Había ido al cine antes'],ans:1,exp:'"He ido" = pretérito perfecto. Se usa para acciones recientes con relevancia para el presente ("esta semana").'},
-{id:2,pool:'grammar',type:'mc',q:'Ofer is describing this morning\'s coffee. He should say:',opts:['Tomé un café esta mañana','He tomado un café esta mañana','Tomaba un café esta mañana','Había tomado un café esta mañana'],ans:1,exp:'Esta mañana = tiempo reciente con conexión al presente → pretérito perfecto.'},
+{id:2,pool:'grammar',type:'mc',q:"Ofer is describing this morning's coffee. He should say:",opts:['Tomé un café esta mañana','He tomado un café esta mañana','Tomaba un café esta mañana','Había tomado un café esta mañana'],ans:1,exp:'"Esta mañana" = tiempo reciente con conexión al presente → pretérito perfecto.'},
 {id:3,pool:'grammar',type:'mc',q:'"Ayer ___ a mi amiga María en la calle." (encontrar)',opts:['he encontrado','encontraba','encontré','habría encontrado'],ans:2,exp:'"Ayer" marca tiempo pasado terminado → pretérito indefinido: encontré.'},
 {id:4,pool:'grammar',type:'fill',q:'Esta semana ___ mucho en el trabajo. (trabajar, yo)',ans:'he trabajado',alt:[],exp:'"Esta semana" + acción con relevancia presente → pretérito perfecto: he trabajado.'},
 {id:5,pool:'grammar',type:'mc',q:'¿Qué marcador de tiempo va con el pretérito <em>indefinido</em>?',opts:['esta semana','esta mañana','hoy','el verano pasado'],ans:3,exp:'"El verano pasado" = tiempo pasado cerrado → indefinido. Los otros van con perfecto o presente.'},
@@ -318,80 +342,78 @@ const QB = [
 {id:18,pool:'grammar',type:'mc',q:'"Si tuviera dinero, ___ una casa en una isla."',opts:['tengo','tendré','tendría','tuviera'],ans:2,exp:'Si + imperfecto subjuntivo → condicional simple: tendría. Hipótesis irreal en presente.'},
 {id:19,pool:'grammar',type:'fill',q:'"Ayer Marta no contestó al teléfono. ___ ocupada." (condicional de suposición)',ans:'Estaría',alt:['estaria','estaría'],exp:'Suposición sobre el pasado (ayer) con menos certeza → condicional simple: estaría.'},
 {id:20,pool:'grammar',type:'mc',q:'"¿Tú qué <em>harías</em> en mi lugar?" — esta pregunta pide:',opts:['Lo que hiciste en el pasado','Tu consejo / lo que harías tú','Lo que vas a hacer mañana','Lo que estás haciendo ahora'],ans:1,exp:'Condicional simple para pedir consejo hipotético: ¿qué harías tú?'},
-{id:21,pool:'grammar',type:'mc',q:'"Yo habría ido a la fiesta pero estaba enferma." — this expresses:',opts:['What actually happened','A future plan','A hypothetical action in the past','A habitual action'],ans:2,exp:'Condicional compuesto (habría + participio) = acción hipotética en el pasado que no ocurrió.'},
+{id:21,pool:'grammar',type:'mc',q:'"Yo habría ido a la fiesta pero estaba enferma." — this expresses:',opts:['What actually happened','A future plan','A hypothetical action in the past that did not happen','A habitual action'],ans:2,exp:'Condicional compuesto (habría + participio) = acción hipotética en el pasado que no ocurrió.'},
 {id:22,pool:'grammar',type:'mc',q:'"Si ___ (saber) la verdad, te lo diría."',opts:['sé','sabré','supiera','sabía'],ans:2,exp:'Si + imperfecto de subjuntivo (supiera) → condicional simple. Hipótesis irreal.'},
 {id:23,pool:'grammar',type:'mc',q:'¿Cuál es una cláusula de <em>tipo 1</em> (condición real/posible)?',opts:['Si tuviera dinero, compraría un coche','Si hubiera tenido tiempo, habría ido','Si estudias español, podrás hablar mejor','Si supiera la respuesta, te la diría'],ans:2,exp:'Tipo 1: si + presente → futuro simple. Condición real y posible.'},
-{id:24,pool:'grammar',type:'fill',q:'Si ___ (tener) más tiempo, estudiaría también japonés.',ans:'tuviera',alt:['tuviese','tuviera '],exp:'Si + imperfecto subjuntivo → condicional simple.'},
-{id:25,pool:'grammar',type:'mc',q:'"Si hubiera ganado mucho dinero cuando era joven, ___ una casa muy grande."',opts:['tendría','tenía','tendré','tenga'],ans:0,exp:'Si + pluscuamperfecto subjuntivo → condicional compuesto O condicional simple (tendría). Ambos son válidos en español hablado.'},
+{id:24,pool:'grammar',type:'fill',q:'Si ___ (tener) más tiempo, estudiaría también japonés.',ans:'tuviera',alt:['tuviese'],exp:'Si + imperfecto subjuntivo → condicional simple.'},
+{id:25,pool:'grammar',type:'mc',q:'"Si hubiera ganado mucho dinero cuando era joven, ___ una casa muy grande."',opts:['tendría','tenía','tendré','tenga'],ans:0,exp:'Si + pluscuamperfecto subjuntivo → condicional simple (tendría). Muy común en español hablado.'},
 {id:26,pool:'grammar',type:'mc',q:'"Cuando ___ (llegar) a Perú, comeré una pizza."',opts:['llego','llegué','llegaré','llegue'],ans:3,exp:'Cuando + referencia futura → subjuntivo: llegue.'},
 {id:27,pool:'grammar',type:'mc',q:'"Cuando ___ (terminar) la reunión, regresaré al hotel."',opts:['termina','terminé','termine','terminara'],ans:2,exp:'Cuando + futuro → presente de subjuntivo: termine.'},
 {id:28,pool:'grammar',type:'fill',q:'En cuanto ___ (acabar) la reunión, me voy al aeropuerto.',ans:'acabe',alt:['acabes'],exp:'En cuanto + futuro → subjuntivo: acabe.'},
 {id:29,pool:'grammar',type:'mc',q:'"Espero que ella ___ (aprobar) el examen."',opts:['aprueba','apruebe','aprobará','aprobó'],ans:1,exp:'"Esperar que" + subjuntivo: apruebe. Dos sujetos diferentes → subjuntivo.'},
 {id:30,pool:'grammar',type:'mc',q:'"Mis padres quieren que yo ___ (ir) al gimnasio."',opts:['voy','iré','vaya','fui'],ans:2,exp:'Querer que + subjuntivo con dos sujetos: vaya.'},
-{id:31,pool:'grammar',type:'fill',q:'Ojalá que ___ (poder) hablar español algún día.',ans:'pueda',alt:['pudiera','puedas'],exp:'"Ojalá que" siempre → subjuntivo: pueda.'},
+{id:31,pool:'grammar',type:'fill',q:'Ojalá que ___ (poder) hablar español algún día.',ans:'pueda',alt:['pudiera'],exp:'"Ojalá que" siempre → subjuntivo: pueda.'},
 {id:32,pool:'grammar',type:'mc',q:'¿Qué expresión requiere subjuntivo?',opts:['Creo que...','Sé que...','Es necesario que...','Estoy seguro de que...'],ans:2,exp:'"Es necesario que" = impersonal de obligación → subjuntivo. Las otras llevan indicativo.'},
 {id:33,pool:'grammar',type:'mc',q:'"No creo que los jóvenes de negocios ___ reunirse en edificios viejos."',opts:['prefieren','prefieran','preferirán','preferían'],ans:1,exp:'"No creo que" en negativa → subjuntivo: prefieran.'},
 {id:34,pool:'grammar',type:'mc',q:'"En Barcelona, tal vez ___ la oportunidad de hablar español." (incertidumbre)',opts:['tengo','tenía','tenga','tendré'],ans:2,exp:'"Tal vez" con incertidumbre → subjuntivo: tenga.'},
 {id:35,pool:'grammar',type:'mc',q:'Choose the grammatically correct sentence:',opts:['Estoy seguro de que venga mañana','Creo que viene mañana','Sé que venga mañana','Es verdad que hable bien'],ans:1,exp:'"Creo que" en positivo + indicativo. "Sé/Estoy seguro/Es verdad" → indicativo también.'},
-{id:36,pool:'grammar',type:'fill',q:'Me alegra que tú ___ (pasar, pretérito perfecto subjuntivo) el examen.',ans:'hayas pasado',alt:['hayas pasado'],exp:'"Me alegra que" expresa emoción → subjuntivo. Acción pasada → perfecto de subjuntivo: hayas pasado.'},
+{id:36,pool:'grammar',type:'fill',q:'Me alegra que tú ___ (pretérito perfecto de subjuntivo, pasar) el examen.',ans:'hayas pasado',alt:[],exp:'"Me alegra que" expresa emoción → subjuntivo. Acción pasada → perfecto de subjuntivo: hayas pasado.'},
 {id:37,pool:'grammar',type:'mc',q:'"Cuando como pizza en casa, siempre ___ demasiado." (hecho habitual presente)',opts:['como','coma','comería','comeré'],ans:0,exp:'Hecho habitual presente → indicativo: como. Solo usamos subjuntivo con referencia futura.'},
 {id:38,pool:'grammar',type:'mc',q:'Condicional compuesto se forma con:',opts:['haber (futuro) + participio','haber (condicional) + participio','haber (presente) + participio','haber (imperfecto) + participio'],ans:1,exp:'Condicional compuesto: habría/habrías/habría... + participio.'},
-{id:39,pool:'grammar',type:'fill',q:'Cuando t ___ llegues a la estación, ya ___ partido. (nosotros, futuro compuesto de partir)',ans:'habremos',alt:['habremos partido'],exp:'Futuro compuesto: habremos partido = acción futura completada antes de otra acción futura.'},
+{id:39,pool:'grammar',type:'fill',q:'Cuando llegues a la estación, ya ___ partido. (nosotros, futuro compuesto de partir)',ans:'habremos',alt:['habremos partido'],exp:'Futuro compuesto: habremos partido = acción futura completada antes de otra acción futura.'},
 {id:40,pool:'grammar',type:'mc',q:'"Habremos caminado 20 kilómetros hoy" expresa:',opts:['Un plan futuro','Una suposición sobre algo ocurrido hoy','Una acción habitual','Una condición irreal'],ans:1,exp:'Futuro compuesto también expresa suposición sobre acciones recién ocurridas.'},
 {id:41,pool:'grammar',type:'mc',q:'"¿Quieres venir al cine?" vs "Quiero que tú vengas al cine" — la diferencia es:',opts:['Ninguna diferencia','Mismos sujetos vs sujetos distintos','Primera es formal, segunda es informal','Primera es pasado, segunda es presente'],ans:1,exp:'Mismo sujeto → infinitivo. Sujetos distintos → "que" + subjuntivo.'},
-{id:42,pool:'grammar',type:'fill',q:'Si ella ___ (comer) mucha pizza, se va a sentir mal. (presente subjuntivo, como)',ans:'come',alt:['coma'],exp:'"Como" (como si, given that) + subjuntivo: como coma mucha pizza, se va a sentir mal.'},
-{id:43,pool:'grammar',type:'mc',q:'"Debería haber vuelto el sábado" expresses:',opts:['What actually happened Saturday','What should have happened but didn\'t','A future obligation','A past habit'],ans:1,exp:'"Deber (condicional) + haber + participio" = acción que debería haber ocurrido pero no ocurrió.'},
-{id:44,pool:'grammar',type:'mc',q:'Pretérito pluscuamperfecto: yo',opts:['he hablado','había hablado','haya hablado','habría hablado'],ans:1,exp:'Pluscuamperfecto = había/habías/había... + participio.'},
+{id:42,pool:'grammar',type:'fill',q:'Como ___ (comer) mucha pizza, se va a sentir mal. (presente subjuntivo)',ans:'coma',alt:[],exp:'"Como" (dado que) + subjuntivo: coma. Expresa una condición probable.'},
+{id:43,pool:'grammar',type:'mc',q:'"Debería haber vuelto el sábado" expresses:',opts:['What actually happened Saturday','What should have happened but did not','A future obligation','A past habit'],ans:1,exp:'"Deber (condicional) + haber + participio" = acción que debería haber ocurrido pero no ocurrió.'},
+{id:44,pool:'grammar',type:'mc',q:'Pretérito pluscuamperfecto, yo:',opts:['he hablado','había hablado','haya hablado','habría hablado'],ans:1,exp:'Pluscuamperfecto = había/habías/había... + participio.'},
 {id:45,pool:'grammar',type:'fill',q:'Si ___ (poder) lo haría. (imperfecto subjuntivo)',ans:'pudiera',alt:['pudiese'],exp:'Si + imperfecto subjuntivo: pudiera (de poder).'},
-
 // ─── VOCABULARY (35) ────────────────────────────
-{id:46,pool:'vocabulary',type:'mc',q:'"Nada más que vendí Bitcoin hoy" — "nada más que" means:',opts:['He hasn\'t sold Bitcoin today','He just sold Bitcoin today','He will sell Bitcoin tomorrow','He wants to sell Bitcoin'],ans:1,exp:'"Nada más que" = just/right after doing something. Ofer just sold Bitcoin this morning.'},
+{id:46,pool:'vocabulary',type:'mc',q:'"Nada más que vendí Bitcoin hoy" — "nada más que" means:',opts:["He hasn't sold Bitcoin today","He just sold Bitcoin today","He will sell Bitcoin tomorrow","He wants to sell Bitcoin"],ans:1,exp:'"Nada más que" = just/right after doing something. Ofer just sold Bitcoin this morning.'},
 {id:47,pool:'vocabulary',type:'fill',q:'The sustainable income from the business = los ___ sostenibles del negocio.',ans:'ingresos',alt:[],exp:'"Ingresos" = income/revenue. "Los ingresos sostenibles" = sustainable income.'},
 {id:48,pool:'vocabulary',type:'mc',q:'¿Qué significa "renunciar el trato"?',opts:['Firmar el acuerdo','Mejorar la oferta','Retirarse del acuerdo','Aceptar las condiciones'],ans:2,exp:'"Renunciar el trato" = to walk away from the deal. Consejo de Ofer a su amigo en las negociaciones.'},
 {id:49,pool:'vocabulary',type:'fill',q:'Necesito ___ un negocio en Perú. (set up / launch)',ans:'montar',alt:['establecer','abrir'],exp:'"Montar un negocio" = to set up/launch a business. Also: montar un mueble, montar a caballo.'},
 {id:50,pool:'vocabulary',type:'mc',q:'"Los salarios son muy ___" (wages are very low)',opts:['altos','bajos','buenos','grandes'],ans:1,exp:'"Bajos" = low. Ofer noticed the low waiter salaries in Berlin cafés.'},
 {id:51,pool:'vocabulary',type:'mc',q:'"Los camareros" son:',opts:['las cámaras','los meseros / camareros de café','las calles','los conductores'],ans:1,exp:'"Los camareros" = waiters. Ofer chats with the café waiters every morning in Berlin.'},
 {id:52,pool:'vocabulary',type:'mc',q:'"Picar algo" cuando tienes un poco de hambre significa:',opts:['Cocinar algo picante','Tomar un aperitivo / snack','Hacer una comida completa','Cortar algo con cuchillo'],ans:1,exp:'"Picar algo" = to nibble/snack. Ofer said "quiero picar algo" at the Peruvian restaurant.'},
-{id:53,pool:'vocabulary',type:'fill',q:'Esta comida está demasiado ___ para mí. (too heavy)',ans:'pesada',alt:['pesado'],exp:'"Pesada/pesado" = heavy. "Una comida muy pesada" = a very heavy/rich meal.'},
+{id:53,pool:'vocabulary',type:'fill',q:'Esta comida está demasiado ___ para mí. (too heavy)',ans:'pesada',alt:['pesado'],exp:'"Pesada" = heavy. "Una comida muy pesada" = a very heavy/rich meal.'},
 {id:54,pool:'vocabulary',type:'mc',q:'"Quiero algo suave" when talking about wine/food means:',opts:['I want something sweet','I want something mild/light','I want something spicy','I want something cold'],ans:1,exp:'"Suave" = mild, smooth, light. "Un vino suave" = a smooth, gentle wine.'},
 {id:55,pool:'vocabulary',type:'mc',q:'"Para llevar" at a restaurant means:',opts:['To pay','To eat here','To take away','To order'],ans:2,exp:'"Para llevar" = to take away. "Para tomar aquí" = to eat in. Ofer hears this every day at Berlin cafés.'},
 {id:56,pool:'vocabulary',type:'mc',q:'"Tienes un día muy ajetreado" means:',opts:['You have a very relaxing day','You have a very busy/hectic day','You have a very sad day','You have a very long day'],ans:1,exp:'"Ajetreado" = hectic, rushed, very busy. Irene described Ofer\'s Barcelona day this way.'},
-{id:57,pool:'vocabulary',type:'fill',q:'"Perdí el ___ y no sabía cómo volver." (lost direction/way)',ans:'rumbo',alt:[],exp:'"Perder el rumbo" = to lose direction, lose one\'s way. Ofer lost his way running in Barcelona.'},
+{id:57,pool:'vocabulary',type:'fill',q:'"Perdí el ___ y no sabía cómo volver." (lost direction/way)',ans:'rumbo',alt:[],exp:'"Perder el rumbo" = to lose direction, lose one\'s way. Ofer got lost running in Barcelona.'},
 {id:58,pool:'vocabulary',type:'mc',q:'"Una milonga" es:',opts:['Un tipo de guitarra','Un restaurante argentino','Un lugar/evento de tango','Una comida peruana'],ans:2,exp:'"Una milonga" = a tango venue/dance event in Argentina. Ofer danced in milongas in Buenos Aires.'},
 {id:59,pool:'vocabulary',type:'fill',q:'Eran los días en que los milongueros empezaban a ___ en mí. (to notice)',ans:'fijarse',alt:['fijarse en'],exp:'"Fijarse en alguien" = to notice someone. Ofer was being noticed at the milongas!'},
 {id:60,pool:'vocabulary',type:'mc',q:'"Con retraso" significa:',opts:['A tiempo','Con retraso / tarde','Sin equipaje','Temprano'],ans:1,exp:'"Con retraso" = late, delayed. "El tren llega con retraso" = the train arrives late.'},
-{id:61,pool:'vocabulary',type:'mc',q:'"No me encuentro bien" — "encontrarse" here means:',opts:['To find oneself','To feel (health/mood)','To meet someone','To get lost'],ans:1,exp:'"Encontrarse" = to feel (health). "¿Cómo te encuentras?" = How do you feel? Ofer\'s friend was unwell.'},
+{id:61,pool:'vocabulary',type:'mc',q:'"No me encuentro bien" — "encontrarse" here means:',opts:['To find oneself','To feel (health/mood)','To meet someone','To get lost'],ans:1,exp:'"Encontrarse" = to feel (health). "¿Cómo te encuentras?" = How do you feel?'},
 {id:62,pool:'vocabulary',type:'fill',q:'El sistema ___ es muy débil si comes demasiada carne. (immune system)',ans:'inmunitario',alt:['inmune'],exp:'"Sistema inmunitario" = immune system. Ofer realized too much meat weakened his immune system.'},
 {id:63,pool:'vocabulary',type:'mc',q:'"Tener el presentimiento de que algo saldría mal" means:',opts:['To know something will go wrong','To have a hunch/feeling that something will go wrong','To prevent something bad happening','To pretend something went wrong'],ans:1,exp:'"Tener el presentimiento" = to have a premonition/gut feeling. A common B1 expression.'},
-{id:64,pool:'vocabulary',type:'mc',q:'"El sabor" refers to:',opts:['The color','The taste/flavor','The smell','The texture'],ans:1,exp:'"El sabor" = taste, flavor. "Esto sabe muy bien / muy mal / sabe dulce / amargo."'},
+{id:64,pool:'vocabulary',type:'mc',q:'"El sabor" refers to:',opts:['The color','The taste/flavor','The smell','The texture'],ans:1,exp:'"El sabor" = taste, flavor. "Esto sabe muy bien / sabe dulce / sabe amargo."'},
 {id:65,pool:'vocabulary',type:'fill',q:'Un vino que tenga ___ = a wine with body/substance.',ans:'cuerpo',alt:[],exp:'"Un vino con cuerpo" = a full-bodied wine. Ofer used this expression at the restaurant.'},
 {id:66,pool:'vocabulary',type:'mc',q:'"Saber" vs "Conocer" — "Sé cocinar" uses "saber" because:',opts:['It refers to knowing a person','It refers to a skill / how to do something','It is in the present tense','Cocinar is a place'],ans:1,exp:'"Saber" = skills, facts, information. "Conocer" = people, places, familiarity.'},
 {id:67,pool:'vocabulary',type:'mc',q:'"¿Te conozco?" uses "conocer" because:',opts:['It is a question','It refers to knowing/meeting a person','Saber is irregular here','No difference'],ans:1,exp:'"Conocer" is used for knowing people and places. "¿Te conozco?" = Have we met?'},
 {id:68,pool:'vocabulary',type:'fill',q:'Ayer ___ con mis amigos a las diez de la noche. (to arrange to meet, quedar)',ans:'quedé',alt:['quede'],exp:'"Quedar con alguien" = to arrange to meet someone. Very common in everyday Spanish.'},
 {id:69,pool:'vocabulary',type:'mc',q:'"Me voy a perder la primera ronda" — "perderse" here means:',opts:['To lose money','To miss something / not be there for it','To get geographically lost','To forget something'],ans:1,exp:'"Perderse algo" = to miss something (an event, a moment). "Me estoy perdiendo" = I\'m missing out.'},
-{id:70,pool:'vocabulary',type:'mc',q:'"Montar" can mean all of these EXCEPT:',opts:['Montar un negocio (set up a business)','Montar un mueble (assemble furniture)','Montar a caballo (ride a horse)','Montar en avión (travel by plane)'],ans:3,exp:'"Montar en avión" is not standard. You say "ir en avión" or "volar". The other three are all correct uses of "montar".'},
-{id:71,pool:'vocabulary',type:'fill',q:'"Llegar a un ___ en el camino" = to reach a crossroads / decision point.',ans:'cruce',alt:[],exp:'"Un cruce en el camino" = a crossroads, a fork in the road. Used metaphorically in Ofer\'s book discussion.'},
+{id:70,pool:'vocabulary',type:'mc',q:'"Montar" can mean all of these EXCEPT:',opts:['Montar un negocio (set up a business)','Montar un mueble (assemble furniture)','Montar a caballo (ride a horse)','Montar en avión (travel by plane)'],ans:3,exp:'"Montar en avión" is not standard Spanish. The other three are all correct uses of "montar".'},
+{id:71,pool:'vocabulary',type:'fill',q:'"Llegar a un ___ en el camino" = to reach a crossroads / decision point.',ans:'cruce',alt:[],exp:'"Un cruce en el camino" = a crossroads. Used metaphorically in the book discussion.'},
 {id:72,pool:'vocabulary',type:'mc',q:'"Estar de acuerdo" means:',opts:['To be wrong','To agree','To be on time','To be in a meeting'],ans:1,exp:'"Estamos de acuerdo" = we agree. "No estoy de acuerdo" = I disagree. Very frequent!'},
 {id:73,pool:'vocabulary',type:'mc',q:'"Llevar + tiempo + gerundio" = ?',opts:['To carry something for a while','How long someone has been doing something','To bring something somewhere','A future plan'],ans:1,exp:'"Llevo 4 años sin fumar" = I\'ve been not smoking for 4 years. "Llevo viviendo en Berlín 5 años."'},
 {id:74,pool:'vocabulary',type:'fill',q:'Llevo ___ fumar cuatro años. (without)',ans:'sin',alt:[],exp:'"Llevar sin + infinitivo" = to have not done something for a period. "Llevo sin comer carne 2 semanas."'},
 {id:75,pool:'vocabulary',type:'mc',q:'"Atender" vs "Entender" — "Mi vecino me atendió muy bien" means:',opts:['My neighbor understood me very well','My neighbor took good care of me','My neighbor listened carefully','My neighbor helped me navigate'],ans:1,exp:'"Atender" = to take care of, to serve, to attend to. "Entender" = to understand.'},
-{id:76,pool:'vocabulary',type:'fill',q:'"Acabar de + infinitivo" expresa: I have just ___ something.',ans:'done',alt:['finished','completed','hecho'],exp:'"Acabo de enviar el email" = I have just sent the email. Very useful to say something just happened.'},
-{id:77,pool:'vocabulary',type:'mc',q:'"Acabo de mandar un email" means:',opts:['I am going to send an email','I should send an email','I have just sent an email','I sent an email yesterday'],ans:2,exp:'"Acabar de + infinitivo" = to have just done something. Very frequent in spoken Spanish.'},
-{id:78,pool:'vocabulary',type:'mc',q:'"No sé a qué me refiero" — "referirse a" means:',opts:['to arrive at','to refer to / mean','to reflect on','to return to'],ans:1,exp:'"¿A qué te refieres?" = What do you mean? / What are you referring to? Used a lot in discussions.'},
-{id:79,pool:'vocabulary',type:'fill',q:'"La ___ que dejas cuando te vas" = the impression you leave when you go.',ans:'impresión',alt:['impresion'],exp:'"La impresión que dejamos cuando nos marchamos" = the impression we leave when we leave. From the book discussion.'},
-{id:80,pool:'vocabulary',type:'mc',q:'"Oscuro" is the opposite of:',opts:['Pequeño','Tranquilo','Claro / Luminoso','Frío'],ans:2,exp:'"Oscuro" = dark. "Claro/luminoso" = light/bright. "Necesito inhalar aire fresco, está muy oscuro aquí."'},
-
+{id:76,pool:'vocabulary',type:'mc',q:'"Acabo de mandar un email" means:',opts:['I am going to send an email','I should send an email','I have just sent an email','I sent an email yesterday'],ans:2,exp:'"Acabar de + infinitivo" = to have just done something. Very frequent in spoken Spanish.'},
+{id:77,pool:'vocabulary',type:'mc',q:'"¿A qué te refieres?" means:',opts:['Where are you going?','What do you mean? / What are you referring to?','How do you feel?','What are you looking for?'],ans:1,exp:'"Referirse a" = to refer to, to mean. "¿A qué te refieres?" = What do you mean?'},
+{id:78,pool:'vocabulary',type:'fill',q:'"La ___ que dejas cuando te vas" = the impression you leave when you go.',ans:'impresión',alt:['impresion'],exp:'"La impresión que dejamos cuando nos marchamos." From the book discussion about how we are remembered.'},
+{id:79,pool:'vocabulary',type:'mc',q:'"Oscuro" is the opposite of:',opts:['Pequeño','Tranquilo','Claro / Luminoso','Frío'],ans:2,exp:'"Oscuro" = dark. "Claro/luminoso" = light/bright. "Inhalar el aire fresco, está muy oscuro aquí."'},
+{id:80,pool:'vocabulary',type:'mc',q:'"¡Qué día de locos!" means:',opts:['What a beautiful day!','What a crazy/hectic day!','What a long day!','What a boring day!'],ans:1,exp:'"Un día de locos" = a crazy, hectic, overwhelming day. Ofer used this in class.'},
 // ─── EXPRESSIONS & IDIOMS (30) ──────────────────
-{id:81,pool:'expression',type:'mc',q:'"Ser un bicho raro" describes someone who is:',opts:['Very lucky','Odd / eccentric / different','Very hardworking','Very noisy'],ans:1,exp:'"Bicho raro" = weird bug. Figuratively: someone who is odd or different from the norm.'},
-{id:82,pool:'expression',type:'mc',q:'Ofer and friends were planning a trip to Italy when his wife arrived. She "nos cortó el rollo." This means:',opts:['She cut the bread','She ruined the fun / killed the vibe','She ended the work meeting','She gave a great idea'],ans:1,exp:'"Cortar el rollo" = to ruin the mood, kill the vibe, interrupt a good moment.'},
+{id:81,pool:'expression',type:'mc',q:'"Ser un bicho raro" describes someone who is:',opts:['Very lucky','Odd / eccentric / different','Very hardworking','Very noisy'],ans:1,exp:'"Bicho raro" = weird bug → someone who is odd or different from the norm.'},
+{id:82,pool:'expression',type:'mc',q:'Ofer and friends were planning Italy when his wife arrived. She "nos cortó el rollo." This means:',opts:['She cut the bread','She ruined the fun / killed the vibe','She ended the work meeting','She gave a great idea'],ans:1,exp:'"Cortar el rollo" = to ruin the mood, kill the vibe, interrupt a good moment.'},
 {id:83,pool:'expression',type:'mc',q:'"Echar una mano" means:',opts:['To throw a punch','To wave goodbye','To give someone a hand / help','To point at someone'],ans:2,exp:'"Echar una mano" = to lend a hand, to help someone out.'},
 {id:84,pool:'expression',type:'mc',q:'"Ayer me dejó plantada una amiga." This means:',opts:['My friend planted flowers for me','My friend stood me up','My friend left me a gift','My friend helped me'],ans:1,exp:'"Dejar plantado/a" = to stand someone up, to not show up when expected.'},
 {id:85,pool:'expression',type:'mc',q:'"Ahogarse en un vaso de agua" means:',opts:['To be very thirsty','To make a big deal out of nothing','To have a swimming accident','To drink too much'],ans:1,exp:'"Ahogarse en un vaso de agua" = to drown in a glass of water = to catastrophize small problems.'},
 {id:86,pool:'expression',type:'mc',q:'"Ser un trozo/cacho de pan" describes someone who is:',opts:['A great cook','Very tall and thin','A very kind, sweet, good person','Very cheap'],ans:2,exp:'"Ser un trozo de pan" = to be a piece of bread = to be a very kind, generous, lovely person.'},
 {id:87,pool:'expression',type:'mc',q:'"Sacar los trapos sucios" means:',opts:['To do the laundry','To air dirty laundry / reveal private secrets','To clean the house thoroughly','To buy new clothes'],ans:1,exp:'"Sacar los trapos sucios" = to air dirty laundry, to reveal embarrassing secrets or problems.'},
 {id:88,pool:'expression',type:'fill',q:'Nos ___ el rollo cuando ella llegó al restaurante. (ella, cortar)',ans:'cortó',alt:['corto'],exp:'"Cortar el rollo" → pretérito indefinido, 3a persona: cortó.'},
-{id:89,pool:'expression',type:'mc',q:'"Una retirada a tiempo es una victoria" — what does this mean?',opts:['Running away always means you lose','Knowing when to stop or step back is a form of winning','Victory needs patience','Retreat and victory are the same'],ans:1,exp:'A strategic retreat at the right moment is a victory. Ofer used this wisdom in his business/life decisions.'},
-{id:90,pool:'expression',type:'fill',q:'Mi amiga me dejó ___ ayer. (stood me up)',ans:'plantado',alt:['plantada'],exp:'"Dejar plantado/a" = to stand someone up. If you\'re female it\'s plantada.'},
+{id:89,pool:'expression',type:'mc',q:'"Una retirada a tiempo es una victoria" — what does this mean?',opts:['Running away always means you lose','Knowing when to stop or step back is a form of winning','Victory needs patience','Retreat and victory are the same'],ans:1,exp:'A strategic retreat at the right moment is a victory. Ofer used this in his life/business decisions.'},
+{id:90,pool:'expression',type:'fill',q:'Mi amiga me dejó ___ ayer. (stood me up, female speaker)',ans:'plantada',alt:['plantado'],exp:'"Dejar plantado/a" = to stand someone up. Female speaker = plantada.'},
 {id:91,pool:'expression',type:'mc',q:'"Tan pronto como llegue, te llamo" is equivalent to:',opts:['Antes de llegar te llamé','En cuanto llegue, te llamo','Cuando llegué, te llamé','Después de llegar te llamé'],ans:1,exp:'"Tan pronto como" = "en cuanto" = as soon as. Both use subjuntivo for future reference.'},
 {id:92,pool:'expression',type:'mc',q:'"A pesar de los viajes de negocios, continuamos." "A pesar de" means:',opts:['Because of','After','In spite of','Instead of'],ans:2,exp:'"A pesar de" = in spite of, despite. It shows contrast or concession.'},
 {id:93,pool:'expression',type:'fill',q:'No es solo para estar relajado; ___ es importante controlarlo. (also/furthermore)',ans:'además',alt:['tambien','también'],exp:'"Además" = furthermore, in addition. "También" also works but "además" is stronger as a connector.'},
@@ -399,25 +421,24 @@ const QB = [
 {id:95,pool:'expression',type:'mc',q:'"Aparte de estudiar, también trabajé ayer" — "aparte de" means:',opts:['After','Before','In addition to','Without'],ans:2,exp:'"Aparte de" = in addition to, apart from, besides.'},
 {id:96,pool:'expression',type:'mc',q:'"Últimamente" means:',opts:['Finally','Lately / recently','Usually','Unfortunately'],ans:1,exp:'"Últimamente" = lately, recently. "Últimamente David hace mucho ejercicio."'},
 {id:97,pool:'expression',type:'fill',q:'"Es increíble cómo el tiempo ___." (flies / passes quickly)',ans:'vuela',alt:['pasa'],exp:'"El tiempo vuela" = time flies. "El tiempo pasa volando" = time passes flying by.'},
-{id:98,pool:'expression',type:'mc',q:'"Estar sudando" en contexto de nervios significa:',opts:['To be very hot','To be sweating / very nervous','To be exercising','To be in pain'],ans:1,exp:'"Estoy sudando" = I\'m sweating. Ofer said this before going to the dentist: "me da miedo, estoy sudando."'},
-{id:99,pool:'expression',type:'mc',q:'"¿Quedamos?" al final de una conversación significa:',opts:['Are we staying here?','Shall we meet up? / Are we on?','Are we in agreement?','Are we leaving?'],ans:1,exp:'"¿Quedamos?" = Shall we meet? / Are we on? From "quedar con alguien" = to arrange to meet.'},
+{id:98,pool:'expression',type:'mc',q:'"Estar sudando" in the context of nerves means:',opts:['To be very hot','To be sweating / very nervous','To be exercising','To be in pain'],ans:1,exp:'"Estoy sudando" = I\'m sweating (with nerves). Ofer said this before going to the dentist.'},
+{id:99,pool:'expression',type:'mc',q:'"¿Quedamos?" at the end of a conversation means:',opts:["Are we staying here?","Shall we meet up? / Are we on?","Are we in agreement?","Are we leaving?"],ans:1,exp:'"¿Quedamos?" = Shall we meet? / Are we on? From "quedar con alguien" = to arrange to meet.'},
 {id:100,pool:'expression',type:'fill',q:'"Cada vez que alguien me pregunta, ___ ese tipo de escapadas." (I recommend)',ans:'recomiendo',alt:[],exp:'"Recomendar" → presente: recomiendo. Often followed by subjuntivo: "Recomiendo que hagas..."'},
 {id:101,pool:'expression',type:'mc',q:'"Me quedé un rato paseando" — "quedarse" here means:',opts:['To decide to go','To stay for a while','To get bored','To sit down'],ans:1,exp:'"Quedarse" = to stay, to remain. "Me quedé un rato" = I stayed/lingered for a while.'},
 {id:102,pool:'expression',type:'mc',q:'"Ponerse un traje" means:',opts:['To buy a suit','To put on / wear a suit','To design a suit','To iron a suit'],ans:1,exp:'"Ponerse" = to put on (clothing). "Se puso un traje" = he put on a suit. Ponerse = change of state.'},
 {id:103,pool:'expression',type:'fill',q:'Ella se ___ muy feliz cuando le dieron la noticia. (became happy, ponerse)',ans:'puso',alt:[],exp:'"Ponerse + adjective" = to become, to get. "Se puso feliz/triste/nervioso."'},
-{id:104,pool:'expression',type:'mc',q:'"Se quedó sorprendido cuando vio los resultados." "Quedarse" here means:',opts:['He left surprised','He ended up / was left surprised','He remained seated','He stayed for a surprise'],ans:1,exp:'"Quedarse + adjective" = to end up being, to remain in a state. "Se quedó sorprendido" = he was left surprised.'},
+{id:104,pool:'expression',type:'mc',q:'"Se quedó sorprendido cuando vio los resultados." "Quedarse" here means:',opts:['He left surprised','He ended up / was left in a state of surprise','He remained seated','He stayed for a surprise'],ans:1,exp:'"Quedarse + adjective" = to end up being, to remain in a state. "Se quedó sorprendido."'},
 {id:105,pool:'expression',type:'mc',q:'"Desde un lugar bueno" — Ofer talks about making decisions "desde un buen lugar." This means:',opts:['From a good physical location','From a good mental/emotional state','From a trusted source','From a wealthy position'],ans:1,exp:'Ofer\'s book concept: good decisions come from a good mental/emotional state, not from stress.'},
-{id:106,pool:'expression',type:'fill',q:'"Darse cuenta de algo" = to ___ something.',ans:'realize',alt:['realise','notice','darse cuenta'],exp:'"Darse cuenta de" = to realize, to notice. "Me di cuenta de que escribí mal" = I realized I wrote wrong.'},
-{id:107,pool:'expression',type:'mc',q:'"Lo encuentro muy bonito" (talking about Peruvians loving their city) — here "encontrar" means:',opts:['To find (a lost object)','To meet someone by chance','To find/consider (an opinion)','To look for something'],ans:2,exp:'"Encontrar + adj" = to find something to be, to consider. "Lo encuentro muy bonito" = I find it very beautiful.'},
+{id:106,pool:'expression',type:'fill',q:'"Darse cuenta de algo" = to ___ something.',ans:'realize',alt:['realise','notice','darse cuenta'],exp:'"Darse cuenta de" = to realize, to notice. "Me di cuenta de que escribí mal."'},
+{id:107,pool:'expression',type:'mc',q:'"Lo encuentro muy bonito" (about Peruvians loving their city) — "encontrar" here means:',opts:['To find (a lost object)','To meet someone by chance','To find/consider (an opinion)','To look for something'],ans:2,exp:'"Encontrar + adj" = to find something to be, to consider. "Lo encuentro muy bonito" = I find it very beautiful.'},
 {id:108,pool:'expression',type:'mc',q:'"¡Anda!" as an exclamation means:',opts:['Walk!','Go away!','Wow! / Really! / Come on!','Hurry up!'],ans:2,exp:'"¡Anda!" = Wow, really, no way! An expression of surprise. "Anda, yo quería ir al cine."'},
 {id:109,pool:'expression',type:'fill',q:'"De pequeño" means: when I was ___.',ans:'little',alt:['young','a child','pequeño','niño'],exp:'"De pequeño/de niño" = when I was little/young. "De pequeño siempre estaba enfermo."'},
-{id:110,pool:'expression',type:'mc',q:'"¡Qué Italia! ¡Vamos para casa!" — His wife said this to express:',opts:['Enthusiasm about Italy','Sarcasm / dismissal of the Italy plan','A question about Italy','Directions to their house'],ans:1,exp:'His wife used "¡Qué Italia!" sarcastically to dismiss the plan. Then she "cortó el rollo."'},
-
+{id:110,pool:'expression',type:'mc',q:'"¡Qué Italia! ¡Vamos para casa!" — His wife said this to express:',opts:['Enthusiasm about Italy','Sarcastic dismissal of the Italy plan','A question about Italy','Directions to their house'],ans:1,exp:'His wife used "¡Qué Italia!" sarcastically to dismiss the plan and "cortó el rollo."'},
 // ─── CONTEXT (25) ────────────────────────────────
 {id:111,pool:'context',type:'fill',q:'[Berlin café] "Cada día llego muy temprano. Cuando quiero pagar, siempre pregunto: \'¿Cuánto ___?\'"',ans:'es',alt:[],exp:'Precio → SER: "¿Cuánto es?" = How much is it? The price is a characteristic, not a state.'},
 {id:112,pool:'context',type:'mc',q:'[Barcelona running] Ofer ran for hours. "Al final, ___ a un barrio muy lejos."',opts:['fui','llegué','corrí','encontré'],ans:1,exp:'"Llegar a" = to arrive at. Pretérito indefinido: llegué. He arrived at a distant neighborhood.'},
 {id:113,pool:'context',type:'mc',q:'[Wife in restaurant] Ofer and friends were planning Italy. "Mi mujer llegó y nos preguntó qué ___."',opts:['hacemos','hacíamos / estábamos haciendo','haremos','hicimos'],ans:1,exp:'Indirect question in the past → imperfecto: "preguntó qué hacíamos." Background ongoing action.'},
-{id:114,pool:'context',type:'fill',q:'[Dentist] La dentista ___ más de 20 años en Berlín y todavía no puede hablar alemán.',ans:'lleva',alt:[],exp:'"Llevar + tiempo" = to have been (doing/in a place) for. She has been in Berlin for 20+ years.'},
+{id:114,pool:'context',type:'fill',q:'[Dentist] La dentista ___ más de 20 años en Berlín y todavía no puede hablar alemán.',ans:'lleva',alt:[],exp:'"Llevar + tiempo" = to have been (in a place) for. She has been in Berlin for 20+ years.'},
 {id:115,pool:'context',type:'fill',q:'[Hotel return] "Cuando llegué al hotel de nuevo, ya ___ limpiado mi habitación."',ans:'habían',alt:['habian'],exp:'Pluscuamperfecto: habían limpiado = they had already cleaned. Past before past.'},
 {id:116,pool:'context',type:'mc',q:'[María] "Ayer me encontré a mi amiga María. Me dijo que ___ un hijo."',opts:['ha tenido','tuvo','había tenido','tiene'],ans:2,exp:'Indirect speech in the past: "había tenido" (pluscuamperfecto) = she had had a baby (before the meeting).'},
 {id:117,pool:'context',type:'fill',q:'[Peru call] El profesor de Lima me preguntó si ___ yo. (confirming identity)',ans:'era',alt:[],exp:'Indirect question in past → imperfecto: "me preguntó si era yo." Direct: "¿Es usted?"'},
@@ -426,78 +447,63 @@ const QB = [
 {id:120,pool:'context',type:'mc',q:'[Indirect speech] "¿Cómo estás?" → "Me preguntó cómo ___."',opts:['estoy','estaba','estaría','esté'],ans:1,exp:'Direct question in present → indirect speech in past: estaba (imperfecto).'},
 {id:121,pool:'context',type:'fill',q:'[Indirect speech] Direct: "¿Quieres reservar una mesa?" → Indirect: "Nos preguntó si ___ reservar una mesa."',ans:'queríamos',alt:['queriamos'],exp:'Indirect question: querer (imperfecto) → queríamos. "Si" introduces indirect yes/no questions.'},
 {id:122,pool:'context',type:'mc',q:'[Indirect speech] Direct: "Ven ahora a mi casa" → Indirect: "Le dije que ___ a mi casa en ese momento."',opts:['venga','viniera','viene','vendrá'],ans:1,exp:'Imperative in direct → imperfecto subjuntivo in indirect reported speech: viniera.'},
-{id:123,pool:'context',type:'mc',q:'[Book café] A woman was reading Ofer\'s book in the café. "Ella ___ muchas notas en el libro cuando la vi."',opts:['escribió','escribía','ha escrito','escribirá'],ans:1,exp:'Ongoing background action in the past → imperfecto: escribía.'},
-{id:124,pool:'context',type:'mc',q:'[Barcelona morning] "Me levanté muy temprano porque ayer por la noche me ___ a las 9."',opts:['acosté','dormí','duermo','acuesto'],ans:0,exp:'"Acostarse" = to go to bed. "Me dormí" is also used (fell asleep). Both acceptable; "me acosté" = went to bed.'},
+{id:123,pool:'context',type:'mc',q:'[Book café] A woman was reading Ofer\'s book. "Ella ___ muchas notas en el libro cuando la vi."',opts:['escribió','escribía','ha escrito','escribirá'],ans:1,exp:'Ongoing background action in the past → imperfecto: escribía.'},
+{id:124,pool:'context',type:'mc',q:'[Barcelona morning] "Me levanté muy temprano porque ayer por la noche me ___ a las 9."',opts:['acosté','dormí','duermo','acuesto'],ans:0,exp:'"Acostarse" = to go to bed. "Me acosté" = I went to bed. "Me dormí" = I fell asleep. Both acceptable.'},
 {id:125,pool:'context',type:'fill',q:'[Barcelona] "Paseé por el centro. ___ puesto un mercado en la plaza." (they had set up)',ans:'Habían',alt:['habian','habían'],exp:'Pluscuamperfecto: habían puesto = they had put/set up (before Ofer arrived).'},
-{id:126,pool:'context',type:'mc',q:'[Peru restaurant] "Cuando ___ a Perú, el taxi ya habrá llegado." (direct speech from the professor)',opts:['llegas','llegues','llegarás','llegarías'],ans:1,exp:'"Cuando" + future → subjuntivo: llegues. The professor used futuro compuesto for the taxi.'},
+{id:126,pool:'context',type:'mc',q:'[Peru taxi] "Cuando ___ al aeropuerto de Lima, el taxi ya habrá llegado." (professor direct speech)',opts:['llegas','llegues','llegarás','llegarías'],ans:1,exp:'"Cuando" + future → subjuntivo: llegues. The professor used futuro compuesto for the taxi.'},
 {id:127,pool:'context',type:'fill',q:'[Chipre postal] "Cuando te la envíe, ya ___ llegado a casa." (future: it will have arrived)',ans:'habrá',alt:[],exp:'Futuro compuesto: habrá llegado = it will have arrived (before you receive it).'},
 {id:128,pool:'context',type:'mc',q:'[Business advice] Ofer told his friend: "Si estás listo para renunciar el trato, ___ mejores acuerdos."',opts:['obtienes','obtendrás','obtuvieras','obtendrías'],ans:1,exp:'Si + presente → futuro simple. Real condition: obtener = to get/obtain. Obtendrás mejores acuerdos.'},
-{id:129,pool:'context',type:'fill',q:'[Running] "Después de cuatro kilómetros me pregunté: ___ voy ahora?" (where)',ans:'a dónde',alt:['adonde','adónde','¿a dónde'],exp:'"¿A dónde voy?" = Where am I going? Moving destination → "a dónde." "¿Dónde estoy?" = Where am I? (location)'},
-{id:130,pool:'context',type:'mc',q:'[Lima taxi] El profesor me dijo que cuando llegue al aeropuerto de Lima, "el taxi ya ___ llegado."',opts:['ha','habría','habrá','había'],ans:2,exp:'Futuro compuesto: habrá llegado = will have arrived (by the time you get there).'},
-{id:131,pool:'context',type:'mc',q:'[Barcelona] Ofer jogged for hours and "perdí el rumbo." What happened next?',opts:['He found a shortcut home','He had to take a taxi because he couldn\'t walk back','He stopped and had coffee','He called his wife'],ans:1,exp:'He was told he couldn\'t walk back and eventually returned after an hour and a half on foot.'},
-{id:132,pool:'context',type:'fill',q:'[Book concept] "Nada tiene significado ___ el que tú le des." (except)',ans:'salvo',alt:['menos','excepto'],exp:'"Salvo" = except, unless. "Nada tiene significado salvo el que tú le des" = nothing has meaning except the meaning you give it.'},
+{id:129,pool:'context',type:'fill',q:'[Running] "Después de cuatro kilómetros me pregunté: ___ voy ahora?" (where to)',ans:'a dónde',alt:['adonde','adónde'],exp:'"¿A dónde voy?" = Where am I going? Moving destination → "a dónde." "¿Dónde estoy?" = Where am I?'},
+{id:130,pool:'context',type:'mc',q:'[Lima taxi] The professor said that when you arrive at the airport, "el taxi ya ___ llegado."',opts:['ha','habría','habrá','había'],ans:2,exp:'Futuro compuesto: habrá llegado = will have arrived (by the time you get there).'},
+{id:131,pool:'context',type:'fill',q:'[Barcelona] "Paseé por el centro de la ciudad. ___ puesto un mercado en una plaza." (habían/había)',ans:'Habían',alt:['habian','habían'],exp:'Pluscuamperfecto 3a persona plural: habían puesto = they had set up.'},
+{id:132,pool:'context',type:'fill',q:'[Book concept] "Nada tiene significado ___ el que tú le des." (except)',ans:'salvo',alt:['menos','excepto'],exp:'"Salvo" = except, unless. "Nada tiene significado salvo el que tú le des" = nothing has meaning except what you give it.'},
 {id:133,pool:'context',type:'mc',q:'[Milonga] "Antes de estar viviendo en Buenos Aires, ya había bailado tango." What tense is "había bailado"?',opts:['Pretérito perfecto','Pretérito indefinido','Pluscuamperfecto','Condicional compuesto'],ans:2,exp:'Pluscuamperfecto: había bailado = had danced. Action completed before another past reference point.'},
-{id:134,pool:'context',type:'mc',q:'[Berlin café] "Hoy tenía 20 euros en mi cartera y con mucho gusto se lo he pagado." Why is "he pagado" used here?',opts:['Because it happened a long time ago','Because it happened today — still relevant to the present','Because it\'s a habit','Because it\'s formal speech'],ans:1,exp:'"Hoy" + still-relevant action → pretérito perfecto: he pagado. The café moment is part of today.'},
+{id:134,pool:'context',type:'mc',q:'[Berlin café] "Hoy tenía 20 euros en mi cartera y con mucho gusto se lo he pagado." Why "he pagado"?',opts:['Because it happened long ago','Because it happened today — still relevant to the present','Because it is a habit','Because it is formal speech'],ans:1,exp:'"Hoy" + still-relevant action → pretérito perfecto: he pagado. The café moment is part of today.'},
 {id:135,pool:'context',type:'fill',q:'[Italy plan] "Después de trabajar, tomé una copa de vino y ___ un plan de viajar a Italia." (we made)',ans:'hicimos',alt:[],exp:'"Hacer un plan" → pretérito indefinido, nosotros: hicimos.'},
-
 // ─── VERB BEHAVIOUR (25) ────────────────────────
 {id:136,pool:'verb',type:'mc',q:'"La fiesta ___ en mi casa el martes." (event location)',opts:['está','es','sea','esté'],ans:1,exp:'SER for events (location + time): "La fiesta es en mi casa." Events are expressed with SER.'},
 {id:137,pool:'verb',type:'mc',q:'"Este libro ___ muy caro ahora." (changeable price)',opts:['es','está','sea','esté'],ans:1,exp:'ESTAR for changeable states: "Está muy caro" = it\'s very expensive (but prices can change).'},
 {id:138,pool:'verb',type:'fill',q:'La comida italiana que probé ___ deliciosa. (it tasted / was delicious)',ans:'estaba',alt:['estuvo'],exp:'ESTAR for how food tastes/seems: "Estaba deliciosa" = it was (tasted) delicious. Changeable quality.'},
-{id:139,pool:'verb',type:'mc',q:'"Manuel ___ gordo" vs "Manuel ___ gordo" — which pair is correct for a permanent vs temporary state?',opts:['es / está','está / es','es / es','está / está'],ans:0,exp:'"Manuel es gordo" = permanently overweight (characteristic). "Manuel está gordo" = he\'s gotten fat lately (change of state). Both exist!'},
+{id:139,pool:'verb',type:'mc',q:'"Manuel ___ gordo" (permanent characteristic) vs "Manuel ___ gordo" (recent change) — correct pair:',opts:['es / está','está / es','es / es','está / está'],ans:0,exp:'"Manuel es gordo" = permanently overweight. "Manuel está gordo" = he\'s gotten fat lately. Both exist!'},
 {id:140,pool:'verb',type:'mc',q:'"Soy de Madrid" vs "Estoy de Madrid" — which is correct for origin?',opts:['Estoy de Madrid','Soy de Madrid','Both are correct','Neither is correct'],ans:1,exp:'"Ser de" = origin. "Soy de Madrid" = I\'m from Madrid. "Estoy" does NOT express origin.'},
 {id:141,pool:'verb',type:'fill',q:'"Este chico es un fresco" vs "el plátano ___ fresco." (the banana is fresh)',ans:'está',alt:[],exp:'"Fresco" with ESTAR = fresh (changeable quality of food). With SER = cheeky/shameless person.'},
 {id:142,pool:'verb',type:'mc',q:'"A Pedro ___ leer libros."',opts:['le gusta','le gustan','les gusta','les gustan'],ans:0,exp:'"Gustar" agrees with the subject (leer = infinitive = singular) → le gusta. "Le" = indirect object (to Pedro).'},
 {id:143,pool:'verb',type:'mc',q:'"A los peruanos ___ el pescado y ___ los plátanos."',opts:['les gusta / les gustan','les gustan / les gusta','le gusta / le gustan','les gusta / les gusta'],ans:0,exp:'"El pescado" = singular → gusta. "Los plátanos" = plural → gustan. "Les" = to them (los peruanos).'},
 {id:144,pool:'verb',type:'fill',q:'"Me ___ los vinos afrutados." (I love them, encantar)',ans:'encantan',alt:[],exp:'"Encantar" + plural noun → encantan. "Me encantan los vinos afrutados."'},
-{id:145,pool:'verb',type:'mc',q:'"A mí tampoco" — you use "tampoco" when:',opts:['Agreeing with a positive statement','Disagreeing with a positive statement','Agreeing with a negative statement','Disagreeing with a negative statement'],ans:2,exp:'"A mí no me gusta" → "A mí tampoco." = Me neither. Tampoco = negative agreement (neither/nor).'},
+{id:145,pool:'verb',type:'mc',q:'"A mí tampoco" — you use "tampoco" when:',opts:['Agreeing with a positive statement','Disagreeing with a positive statement','Agreeing with a negative statement','Disagreeing with a negative statement'],ans:2,exp:'"A mí no me gusta" → "A mí tampoco." = Me neither. Tampoco = negative agreement.'},
 {id:146,pool:'verb',type:'mc',q:'"Juan escribió una carta a su abuela." The indirect object pronoun is:',opts:['lo','la','le','se'],ans:2,exp:'Indirect object (a su abuela = to his grandmother) → "le." "Juan le escribió una carta."'},
 {id:147,pool:'verb',type:'mc',q:'"Juan le escribió una carta a su abuela." Replacing BOTH objects: "Juan ___ ___."',opts:['la le escribió','le la escribió','se la escribió','lo le escribió'],ans:2,exp:'le + la → se la. When combining 3rd person indirect (le/les) + 3rd person direct (lo/la), le/les → se.'},
-{id:148,pool:'verb',type:'fill',q:'"El libro ___ ayuda a organizarte mejor." (replace "el libro" with a direct object pronoun)',ans:'lo',alt:[],exp:'"El libro" is a masculine direct object. Replace with "lo". "Lo ayuda a organizarte mejor." Note: "te" is already there as the indirect object.'},
+{id:148,pool:'verb',type:'fill',q:'"El libro ___ ayuda a organizarte mejor." (replace "el libro" with a direct object pronoun)',ans:'lo',alt:[],exp:'"El libro" is a masculine direct object → replace with "lo". "Lo ayuda a organizarte mejor."'},
 {id:149,pool:'verb',type:'mc',q:'"Dáselo ya" — this imperative means:',opts:['Give it to them now','Give it to him/her now','Give it to me now','Give it to us now'],ans:1,exp:'"Dáselo" = da (tú imperative of dar) + se (indirect, 3rd person) + lo (direct). Give it to him/her.'},
 {id:150,pool:'verb',type:'mc',q:'"Me levanté muy temprano" uses a reflexive verb. This means:',opts:['Someone else got me up','I got myself up','I woke up naturally','I am always an early riser'],ans:1,exp:'"Levantarse" reflexive = to get oneself up. "Alguien me levantó" = someone got me up (not reflexive).'},
 {id:151,pool:'verb',type:'fill',q:'Normalmente me ___ a las 11 de la noche. (go to bed, acostarse)',ans:'acuesto',alt:[],exp:'"Acostarse" = to go to bed. Presente, yo: me acuesto.'},
 {id:152,pool:'verb',type:'mc',q:'"Me dormí a las 9" vs "Me duermo a las 9" — la diferencia:',opts:['No difference','First = I fell asleep (completed event); second = I fall asleep (habitual)','First is more polite','First is singular, second is plural'],ans:1,exp:'"Me dormí" (indefinido) = I fell asleep (single completed event). "Me duermo" (presente) = habitual.'},
 {id:153,pool:'verb',type:'fill',q:'Ayer me ___ por la calle. (I fell down, caerse)',ans:'caí',alt:[],exp:'"Caerse" = to fall down. Pretérito indefinido, yo: me caí.'},
-{id:154,pool:'verb',type:'mc',q:'"Me recuerda a cuando era pequeño" — "recordar" here functions like:',opts:['Acordarse de (reflexive)','Gustar (indirect object)','A regular transitive verb with direct object','A reflexive verb'],ans:1,exp:'"Me recuerda" = it reminds me. Functions like GUSTAR: "me/te/le + recuerda." Subject is the thing/person that reminds.'},
+{id:154,pool:'verb',type:'mc',q:'"Me recuerda a cuando era pequeño" — "recordar" here functions like:',opts:['Acordarse de (reflexive)','Gustar (indirect object)','A regular transitive verb with direct object','A reflexive verb'],ans:1,exp:'"Me recuerda" = it reminds me. Functions like GUSTAR: "me/te/le + recuerda." Subject is the thing that reminds.'},
 {id:155,pool:'verb',type:'mc',q:'"Me acuerdo de cuando estudiaba" vs "Recuerdo cuando estudiaba" — these are:',opts:['The same meaning','Different: first is present, second is past','Different: first is informal, second is formal','Different: first is incorrect'],ans:0,exp:'Both mean the same: I remember when I used to study. "Acordarse de" and "recordar" are synonymous.'},
-{id:156,pool:'verb',type:'fill',q:'"Caer bien/mal" — "Tu hermana me ___ muy bien." (she falls well = I like her)',ans:'cae',alt:[],exp:'"Caer bien/mal" = to make a good/bad impression. Functions like GUSTAR. "Me cae bien" = I like them (personally).'},
-{id:157,pool:'verb',type:'mc',q:'"¿Cómo te va?" is different from "¿Cómo estás?" because:',opts:['No difference','¿Cómo te va? asks more about life in general / how things are going','¿Cómo te va? is more formal','¿Cómo te va? is only used in writing'],ans:1,exp:'"¿Cómo te va?" = How\'s it going (life, work, things). "¿Cómo estás?" = How are you (at this moment).'},
+{id:156,pool:'verb',type:'fill',q:'"Caer bien/mal" — "Tu hermana me ___ muy bien." (she makes a good impression on me)',ans:'cae',alt:[],exp:'"Caer bien/mal" = to make a good/bad impression. Functions like GUSTAR. "Me cae bien" = I like them (personally).'},
+{id:157,pool:'verb',type:'mc',q:'"¿Cómo te va?" is different from "¿Cómo estás?" because:',opts:['No difference','"¿Cómo te va?" asks more about life in general / how things are going','"¿Cómo te va?" is more formal','"¿Cómo te va?" is only used in writing'],ans:1,exp:'"¿Cómo te va?" = How\'s it going (life, work, things). "¿Cómo estás?" = How are you (at this moment).'},
 {id:158,pool:'verb',type:'mc',q:'"Estoy deseando ir al cine hoy." "Estar deseando + infinitivo" expresses:',opts:['Obligation','Eagerness / looking forward to something','Doubt','Surprise'],ans:1,exp:'"Estar deseando" = to be eager to, to look forward to. "Estoy deseando saber de ti" = I look forward to hearing from you.'},
 {id:159,pool:'verb',type:'fill',q:'"El libro te ayuda a ___ mejor." (to organize yourself, reflexive)',ans:'organizarte',alt:['organizar'],exp:'"Organizarse" = to organize oneself. "Te ayuda a organizarte mejor."'},
-{id:160,pool:'verb',type:'mc',q:'"Encontrarse" in the phrase "¿Cómo te encuentras hoy?" means:',opts:['To find something','To meet someone','To feel (health)','To be lost'],ans:2,exp:'"Encontrarse" = to feel (health/wellbeing). "Me encuentro bien/mal" = I feel well/unwell. Ofer\'s friend "no se encontraba bien."'},
+{id:160,pool:'verb',type:'mc',q:'"Encontrarse" in the phrase "¿Cómo te encuentras hoy?" means:',opts:['To find something','To meet someone','To feel (health)','To be lost'],ans:2,exp:'"Encontrarse" = to feel (health/wellbeing). "Me encuentro bien/mal" = I feel well/unwell.'},
 ];
 
 // ═══════════════════════════════════════════════════
-// SESSION GENERATOR (seeded deterministic)
+// SESSION GENERATOR (seeded, deterministic)
 // ═══════════════════════════════════════════════════
-function seededRNG(seed){
-  let s=seed>>>0;
-  return ()=>{s=(Math.imul(1664525,s)+1013904223)>>>0;return s/4294967295};
-}
-function seededShuffle(arr,seed){
-  const a=[...arr],rng=seededRNG(seed);
-  for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
-  return a;
-}
+function seededRNG(seed){let s=seed>>>0;return ()=>{s=(Math.imul(1664525,s)+1013904223)>>>0;return s/4294967295};}
+function seededShuffle(arr,seed){const a=[...arr],rng=seededRNG(seed);for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function buildSessions(){
   const all=QB.map(q=>q.id);
-  const byPool={};
-  QB.forEach(q=>{if(!byPool[q.pool])byPool[q.pool]=[];byPool[q.pool].push(q.id);});
+  const byPool={};QB.forEach(q=>{if(!byPool[q.pool])byPool[q.pool]=[];byPool[q.pool].push(q.id);});
   const sess=[];
-  // 80 random
-  for(let i=0;i<80;i++){
-    const shuffled=seededShuffle(all,100+i*73);
-    sess.push({id:i+1,type:'random',pool:null,qs:shuffled.slice(0,15)});
-  }
-  // 20 focused (4 per pool)
+  for(let i=0;i<80;i++){const s=seededShuffle(all,100+i*73);sess.push({id:i+1,type:'random',pool:null,qs:s.slice(0,15)});}
   const pools=['grammar','vocabulary','expression','context','verb'];
   pools.forEach((pool,pi)=>{
     const ids=byPool[pool]||[];
     for(let j=0;j<4;j++){
-      const shuffled=seededShuffle(ids,9000+pi*100+j*31);
-      const qs=[];
-      while(qs.length<15) qs.push(...shuffled);
+      const s=seededShuffle(ids,9000+pi*100+j*31);
+      const qs=[];while(qs.length<15)qs.push(...s);
       sess.push({id:81+pi*4+j,type:'focus',pool,qs:qs.slice(0,15)});
     }
   });
@@ -509,26 +515,11 @@ const POOL_ICONS={grammar:'⚙️',vocabulary:'🧳',expression:'💬',context:'
 const GRADE_COLORS={'A+':'#27AE60','A':'#2ECC71','B':'#3498DB','C':'#F39C12','D':'#E74C3C'};
 
 // ═══════════════════════════════════════════════════
-// STATE
+// STATE & STORAGE
 // ═══════════════════════════════════════════════════
-let state={
-  sessionIdx:0,  // which session (0-99)
-  qIdx:0,        // current question index in session
-  qs:[],         // question objects for current session
-  answers:[],    // {id,correct,userAnswer} per question
-  timerSec:720,  // 12 min
-  timerRef:null,
-  answered:false,
-  sessionType:'random',
-  sessionPool:null,
-};
-
-function loadProgress(){
-  try{return JSON.parse(localStorage.getItem('spanish100')||'{}')}catch(e){return{}}
-}
-function saveProgress(p){
-  try{localStorage.setItem('spanish100',JSON.stringify(p))}catch(e){}
-}
+let state={sessionIdx:0,qIdx:0,qs:[],answers:[],timerSec:720,timerRef:null,answered:false,sessionType:'random',sessionPool:null,reviewSource:'results'};
+function loadProgress(){try{return JSON.parse(localStorage.getItem('spanish100')||'{}')}catch(e){return{}}}
+function saveProgress(p){try{localStorage.setItem('spanish100',JSON.stringify(p))}catch(e){}}
 
 // ═══════════════════════════════════════════════════
 // NAVIGATION
@@ -536,7 +527,7 @@ function saveProgress(p){
 function showScreen(name){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById('screen-'+name).classList.add('active');
-  if(name==='home') renderHome();
+  if(name==='home')renderHome();
 }
 
 // ═══════════════════════════════════════════════════
@@ -551,87 +542,178 @@ function renderHome(){
   document.getElementById('stat-day').textContent=done.length;
   document.getElementById('stat-streak').textContent=streak;
   document.getElementById('stat-avg').textContent=avg!=null?avg+'%':'—';
+  const mCount=document.getElementById('mistakes-count');
+  if(mCount){const mc=Object.keys(p.mistakes||{}).length;mCount.textContent=mc+' q';}
   const grid=document.getElementById('day-grid');
   grid.innerHTML='';
   for(let i=1;i<=100;i++){
-    const d=document.createElement('div');
-    d.className='day-dot';
+    const d=document.createElement('div');d.className='day-dot';
     const s=done.find(s=>s.day===i);
-    if(s){
-      d.classList.add(s.score>=90?'perfect':'done');
-      d.title=`Day ${i}: ${s.score}%`;
-    } else if(i===done.length+1){
-      d.classList.add('today');
-    }
-    d.textContent=i;
-    grid.appendChild(d);
+    if(s){d.classList.add(s.score>=90?'perfect':'done');d.title=`Day ${i}: ${s.score}%`;}
+    else if(i===done.length+1){d.classList.add('today');}
+    d.textContent=i;grid.appendChild(d);
   }
+  renderHistory(p.sessions||[]);
 }
-
 function calcStreak(days){
-  if(!days.length) return 0;
+  if(!days.length)return 0;
   const today=new Date().toDateString();
   const sorted=[...new Set(days)].sort().reverse();
-  if(sorted[0]!==today && sorted[0]!==new Date(Date.now()-86400000).toDateString()) return 0;
+  if(sorted[0]!==today&&sorted[0]!==new Date(Date.now()-86400000).toDateString())return 0;
   let s=1;
-  for(let i=1;i<sorted.length;i++){
-    const a=new Date(sorted[i-1]),b=new Date(sorted[i]);
-    if((a-b)===86400000) s++;
-    else break;
-  }
+  for(let i=1;i<sorted.length;i++){const a=new Date(sorted[i-1]),b=new Date(sorted[i]);if((a-b)===86400000)s++;else break;}
   return s;
+}
+
+// ═══════════════════════════════════════════════════
+// HISTORY
+// ═══════════════════════════════════════════════════
+function renderHistory(sessions){
+  const list=document.getElementById('history-list');
+  if(!list)return;
+  if(!sessions||!sessions.length){
+    list.innerHTML='<div style="color:var(--gray);font-size:14px;padding:8px 0">No sessions yet — start your Day 1!</div>';
+    return;
+  }
+  const recent=[...sessions].reverse().slice(0,10);
+  list.innerHTML=recent.map((s,i)=>{
+    const realIdx=sessions.length-1-i;
+    const color=s.score>=90?'#27AE60':s.score>=70?'#3498DB':s.score>=55?'#F39C12':'#E74C3C';
+    const wrongCount=s.wrong?s.wrong.length:0;
+    const typeIcon=s.type==='mistakes'?' 🔥':s.pool?' 🎯':' 🎲';
+    const poolLabel=s.pool?POOL_NAMES[s.pool]:'Random Mix';
+    return `<div class="history-item" onclick="reviewPastSession(${realIdx})">
+      <div class="hist-day" style="background:${color}20;color:${color}">D${s.day}</div>
+      <div class="hist-info">
+        <div class="hist-title">${typeIcon} ${poolLabel}</div>
+        <div class="hist-sub">${s.date} · ${wrongCount} mistake${wrongCount!==1?'s':''} · tap to review</div>
+      </div>
+      <div class="hist-score" style="color:${color}">${s.score}%</div>
+    </div>`;
+  }).join('');
+}
+
+function reviewPastSession(dayIdx){
+  const p=loadProgress();
+  const s=p.sessions[dayIdx];
+  if(!s){showToast('Session not found');return;}
+  state.reviewSource='history';
+  const sub=document.getElementById('review-sub');
+  if(sub)sub.textContent=`Day ${s.day} · ${s.date} · ${s.score}%`;
+  const body=document.getElementById('review-body');
+  const wrong=s.wrong||[];
+  if(!wrong.length){
+    body.innerHTML=`<div style="padding:32px 18px;text-align:center">
+      <div style="font-size:48px;margin-bottom:12px">🎉</div>
+      <div style="font-size:20px;font-weight:700;color:var(--success)">No mistakes on Day ${s.day}!</div>
+      <div style="font-size:14px;color:var(--gray);margin-top:8px">${s.date} · Score: ${s.score}%</div>
+    </div>`;
+    showScreen('review');return;
+  }
+  const infoBar=`<div style="padding:12px 18px 0"><div style="background:var(--navy);color:white;border-radius:10px;padding:12px 14px;font-size:13px">📅 <strong>Day ${s.day}</strong> · ${s.date} · Score: ${s.score}% · ${wrong.length} mistake${wrong.length!==1?'s':''}</div></div>`;
+  const cards=wrong.map(w=>{
+    const q=QB.find(qq=>qq.id===w.id);
+    if(!q)return '';
+    const correctAns=q.type==='mc'?q.opts[q.ans]:q.ans;
+    return `<div class="review-card">
+      <div class="rc-pool">${POOL_ICONS[q.pool]} ${POOL_NAMES[q.pool]}</div>
+      <div class="rc-q">${q.q}</div>
+      <div class="rc-answer-row"><span class="rc-icon">❌</span><span class="rc-label">You said:</span><span class="rc-val rc-wrong-val">${w.userAnswer||'(blank)'}</span></div>
+      <div class="rc-answer-row"><span class="rc-icon">✅</span><span class="rc-label">Correct:</span><span class="rc-val rc-right-val">${correctAns}</span></div>
+      <div class="rc-exp">${q.exp}</div>
+    </div>`;
+  }).join('');
+  const shareCard=`<div class="share-card">
+    <div class="share-title">📤 Share with Irene</div>
+    <div class="share-text" id="share-text">${generateShareText(s)}</div>
+    <button class="share-copy-btn" onclick="copyShareText()">📋 Copy for WhatsApp / Email</button>
+  </div>`;
+  body.innerHTML=infoBar+cards+shareCard;
+  showScreen('review');
+}
+
+function generateShareText(s){
+  const wrong=s.wrong||[];
+  const lines=[
+    '🇪🇸 Spanish Practice Report',
+    `📅 Day ${s.day} · ${s.date}`,
+    `✅ Score: ${s.score}% (${15-wrong.length}/15 correct)`,
+    `❌ Mistakes: ${wrong.length}`,
+    '─────────────────────'
+  ];
+  wrong.forEach((w,i)=>{
+    const q=QB.find(qq=>qq.id===w.id);if(!q)return;
+    const correct=q.type==='mc'?q.opts[q.ans]:q.ans;
+    lines.push(`${i+1}. [${POOL_NAMES[q.pool]}]`);
+    lines.push(`   Q: ${q.q.replace(/<[^>]+>/g,'')}`);
+    lines.push(`   ✗ Said: "${w.userAnswer||'(blank)'}"`);
+    lines.push(`   ✓ Answer: "${correct}"`);
+    lines.push('');
+  });
+  lines.push('Generated by 100 Days of Spanish');
+  return lines.join('\n');
+}
+
+function copyShareText(){
+  const el=document.getElementById('share-text');if(!el)return;
+  const text=el.textContent;
+  if(navigator.clipboard){navigator.clipboard.writeText(text).then(()=>showToast('✅ Copied! Paste in WhatsApp or email')).catch(()=>fallbackCopy(text));}
+  else fallbackCopy(text);
+}
+function fallbackCopy(text){
+  const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
+  showToast('✅ Copied!');
+}
+function reviewGoBack(){
+  if(state.reviewSource==='history')showScreen('home');
+  else showScreen('results');
 }
 
 // ═══════════════════════════════════════════════════
 // FOCUS PICKER
 // ═══════════════════════════════════════════════════
-function showFocusPicker(){showScreen('focus')}
+function showFocusPicker(){
+  const p=loadProgress();
+  const mc=Object.keys(p.mistakes||{}).length;
+  const el=document.getElementById('mistakes-count');
+  if(el)el.textContent=mc+' q';
+  showScreen('focus');
+}
 
 // ═══════════════════════════════════════════════════
 // START SESSION
 // ═══════════════════════════════════════════════════
-function getNextSessionIdx(type, pool){
-  const p=loadProgress();
-  const done=p.sessions||[];
+function getNextSessionIdx(type,pool){
+  const p=loadProgress();const done=p.sessions||[];
   if(type==='random'){
-    for(let i=0;i<80;i++){if(!done.find(s=>s.sid===SESSIONS[i].id)) return i;}
-    // all done — cycle back
+    for(let i=0;i<80;i++){if(!done.find(s=>s.sid===SESSIONS[i].id))return i;}
     return Math.floor(Math.random()*80);
   } else {
     const pools=['grammar','vocabulary','expression','context','verb'];
-    const pi=pools.indexOf(pool);
-    const focusStart=80+pi*4;
-    for(let i=0;i<4;i++){if(!done.find(s=>s.sid===SESSIONS[focusStart+i].id)) return focusStart+i;}
+    const pi=pools.indexOf(pool);const focusStart=80+pi*4;
+    for(let i=0;i<4;i++){if(!done.find(s=>s.sid===SESSIONS[focusStart+i].id))return focusStart+i;}
     return focusStart+Math.floor(Math.random()*4);
   }
 }
-
-function startRandom(){
-  const idx=getNextSessionIdx('random',null);
-  launchSession(idx,'random',null);
+function startRandom(){launchSession(getNextSessionIdx('random',null),'random',null);}
+function startFocus(pool){launchSession(getNextSessionIdx('focus',pool),'focus',pool);}
+function startMistakesMix(){
+  const p=loadProgress();
+  const mistakes=p.mistakes||{};
+  const ids=Object.keys(mistakes).map(Number).filter(id=>QB.find(q=>q.id===id));
+  if(ids.length<3){showToast('Complete a few sessions first to unlock Mistakes Mix!');return;}
+  const sorted=ids.sort((a,b)=>(mistakes[b]||0)-(mistakes[a]||0));
+  const qs=[];while(qs.length<15)qs.push(...sorted);
+  const sessionQs=qs.slice(0,15).map(id=>QB.find(q=>q.id===id)).filter(Boolean);
+  state={sessionIdx:-1,qIdx:0,qs:sessionQs,answers:[],timerSec:720,timerRef:null,answered:false,sessionType:'mistakes',sessionPool:null,reviewSource:'results'};
+  showScreen('quiz');startTimer();renderQuestion();
 }
-function startFocus(pool){
-  const idx=getNextSessionIdx('focus',pool);
-  launchSession(idx,'focus',pool);
-}
-
-function launchSession(sessionIdx, type, pool){
+function launchSession(sessionIdx,type,pool){
   const sess=SESSIONS[sessionIdx];
   const qs=sess.qs.map(id=>QB.find(q=>q.id===id)).filter(Boolean);
-  state={
-    sessionIdx,
-    qIdx:0,
-    qs,
-    answers:[],
-    timerSec:720,
-    timerRef:null,
-    answered:false,
-    sessionType:type,
-    sessionPool:pool,
-  };
-  showScreen('quiz');
-  startTimer();
-  renderQuestion();
+  state={sessionIdx,qIdx:0,qs,answers:[],timerSec:720,timerRef:null,answered:false,sessionType:type,sessionPool:pool,reviewSource:'results'};
+  showScreen('quiz');startTimer();renderQuestion();
 }
 
 // ═══════════════════════════════════════════════════
@@ -639,11 +721,7 @@ function launchSession(sessionIdx, type, pool){
 // ═══════════════════════════════════════════════════
 function startTimer(){
   clearInterval(state.timerRef);
-  state.timerRef=setInterval(()=>{
-    state.timerSec--;
-    updateTimerUI();
-    if(state.timerSec<=0){clearInterval(state.timerRef);timeUp();}
-  },1000);
+  state.timerRef=setInterval(()=>{state.timerSec--;updateTimerUI();if(state.timerSec<=0){clearInterval(state.timerRef);timeUp();}},1000);
 }
 function updateTimerUI(){
   const el=document.getElementById('q-timer');
@@ -651,48 +729,30 @@ function updateTimerUI(){
   el.textContent=`${m}:${s.toString().padStart(2,'0')}`;
   el.className='timer'+(state.timerSec<120?' danger':state.timerSec<240?' warn':'');
 }
-function timeUp(){
-  showToast("⏰ Time's up! Let's see how you did.");
-  setTimeout(()=>endSession(),1500);
-}
+function timeUp(){showToast("⏰ Time's up!");setTimeout(()=>endSession(),1500);}
 
 // ═══════════════════════════════════════════════════
 // RENDER QUESTION
 // ═══════════════════════════════════════════════════
 function renderQuestion(){
-  const q=state.qs[state.qIdx];
-  state.answered=false;
-  const total=state.qs.length;
-  const idx=state.qIdx;
-
-  // header
+  const q=state.qs[state.qIdx];state.answered=false;
+  const total=state.qs.length,idx=state.qIdx;
   document.getElementById('q-counter').textContent=`${idx+1} / ${total}`;
-  document.getElementById('q-pool-tag').textContent=(POOL_ICONS[q.pool]||'')+'  '+POOL_NAMES[q.pool];
+  document.getElementById('q-pool-tag').textContent=(POOL_ICONS[q.pool]||'')+' '+POOL_NAMES[q.pool];
   document.getElementById('q-progress').style.width=`${(idx/total)*100}%`;
   updateTimerUI();
-
-  // dots
-  const dots=document.getElementById('q-dots');
-  dots.innerHTML='';
+  const dots=document.getElementById('q-dots');dots.innerHTML='';
   for(let i=0;i<total;i++){
     const d=document.createElement('div');
     d.className='pdot'+(i<state.answers.length?(state.answers[i].correct?' correct':' wrong'):i===idx?' current':'');
     dots.appendChild(d);
   }
-
-  // body
   const body=document.getElementById('quiz-body');
-  let html='';
-  if(q.pool_context) html+=`<div class="q-context"><strong>Context:</strong> ${q.pool_context}</div>`;
-  html+=`<div class="q-pool-label">${POOL_ICONS[q.pool]} ${POOL_NAMES[q.pool]}</div>`;
+  let html=`<div class="q-pool-label">${POOL_ICONS[q.pool]} ${POOL_NAMES[q.pool]}</div>`;
   html+=`<div class="q-text">${q.q}</div>`;
-
   if(q.type==='mc'){
     html+='<div class="options">';
-    const letters=['A','B','C','D'];
-    q.opts.forEach((opt,i)=>{
-      html+=`<button class="opt-btn" id="opt-${i}" onclick="selectMC(${i})"><div class="opt-letter">${letters[i]}</div>${opt}</button>`;
-    });
+    ['A','B','C','D'].forEach((l,i)=>{html+=`<button class="opt-btn" id="opt-${i}" onclick="selectMC(${i})"><div class="opt-letter">${l}</div>${q.opts[i]}</button>`;});
     html+='</div>';
   } else {
     html+=`<div class="fill-wrap">
@@ -701,64 +761,39 @@ function renderQuestion(){
       <button class="fill-submit" id="fill-submit" onclick="submitFill()">Check ✓</button>
     </div>`;
   }
-
   html+=`<div class="feedback" id="feedback"></div>`;
   html+=`<button class="next-btn" id="next-btn" onclick="nextQuestion()">${state.qIdx<state.qs.length-1?'Next Question →':'See Results 🏁'}</button>`;
-  body.innerHTML=html;
-  body.scrollTop=0;
-
-  if(q.type==='fill'){
-    setTimeout(()=>{const inp=document.getElementById('fill-input');if(inp)inp.focus();},100);
-  }
+  body.innerHTML=html;body.scrollTop=0;
+  if(q.type==='fill'){setTimeout(()=>{const inp=document.getElementById('fill-input');if(inp)inp.focus();},100);}
 }
 
 // ═══════════════════════════════════════════════════
-// MC LOGIC
+// MC & FILL LOGIC
 // ═══════════════════════════════════════════════════
 function selectMC(chosen){
-  if(state.answered) return;
-  state.answered=true;
-  const q=state.qs[state.qIdx];
-  const correct=chosen===q.ans;
-  // disable all
-  document.querySelectorAll('.opt-btn').forEach((b,i)=>{
-    b.disabled=true;
-    if(i===q.ans) b.classList.add('correct');
-    else if(i===chosen && !correct) b.classList.add('wrong');
-  });
-  recordAnswer(correct, q.opts[chosen]);
-  showFeedback(correct, q.opts[q.ans], q.exp);
+  if(state.answered)return;state.answered=true;
+  const q=state.qs[state.qIdx];const correct=chosen===q.ans;
+  document.querySelectorAll('.opt-btn').forEach((b,i)=>{b.disabled=true;if(i===q.ans)b.classList.add('correct');else if(i===chosen&&!correct)b.classList.add('wrong');});
+  recordAnswer(correct,q.opts[chosen]);showFeedback(correct,q.opts[q.ans],q.exp);
 }
-
-// ═══════════════════════════════════════════════════
-// FILL LOGIC
-// ═══════════════════════════════════════════════════
 function normalizeAnswer(s){
   return s.toLowerCase().trim()
     .replace(/á/g,'a').replace(/é/g,'e').replace(/í/g,'i').replace(/ó/g,'o').replace(/ú/g,'u')
     .replace(/ñ/g,'n').replace(/ü/g,'u').replace(/[^a-z0-9 ]/g,'');
 }
 function submitFill(){
-  if(state.answered) return;
-  const input=document.getElementById('fill-input');
-  if(!input) return;
-  const val=input.value.trim();
-  if(!val){showToast('Please type an answer first!');return;}
+  if(state.answered)return;
+  const input=document.getElementById('fill-input');if(!input)return;
+  const val=input.value.trim();if(!val){showToast('Please type an answer first!');return;}
   state.answered=true;
   const q=state.qs[state.qIdx];
   const userN=normalizeAnswer(val);
-  const correctAnswers=[q.ans,...(q.alt||[])];
-  const correct=correctAnswers.some(a=>normalizeAnswer(a)===userN);
+  const correct=[q.ans,...(q.alt||[])].some(a=>normalizeAnswer(a)===userN);
   input.className='fill-input '+(correct?'correct':'wrong');
   document.getElementById('fill-submit').disabled=true;
-  recordAnswer(correct, val);
-  showFeedback(correct, q.ans, q.exp);
+  recordAnswer(correct,val);showFeedback(correct,q.ans,q.exp);
 }
-
-// ═══════════════════════════════════════════════════
-// FEEDBACK & NEXT
-// ═══════════════════════════════════════════════════
-function showFeedback(correct, correctAnswer, explanation){
+function showFeedback(correct,correctAnswer,explanation){
   const fb=document.getElementById('feedback');
   fb.className='feedback visible '+(correct?'correct':'wrong');
   fb.innerHTML=correct
@@ -766,9 +801,9 @@ function showFeedback(correct, correctAnswer, explanation){
     :`<span class="feedback-icon">❌</span><span class="feedback-answer">Answer: <strong>${correctAnswer}</strong></span><div class="feedback-exp">${explanation}</div>`;
   document.getElementById('next-btn').className='next-btn visible';
 }
-function recordAnswer(correct, userAnswer){
+function recordAnswer(correct,userAnswer){
   const q=state.qs[state.qIdx];
-  state.answers.push({id:q.id,pool:q.pool,correct,userAnswer,q:q.q,correctAnswer:q.ans,explanation:q.exp});
+  state.answers.push({id:q.id,pool:q.pool,correct,userAnswer});
 }
 function nextQuestion(){
   state.qIdx++;
@@ -785,33 +820,26 @@ function endSession(){
   const total=state.answers.length;
   const pct=total?Math.round(correct/total*100):0;
   const grade=pct>=95?'A+':pct>=85?'A':pct>=70?'B':pct>=55?'C':'D';
-
-  // save progress
   const p=loadProgress();
-  if(!p.sessions) p.sessions=[];
-  if(!p.scores) p.scores=[];
-  if(!p.days) p.days=[];
+  if(!p.sessions)p.sessions=[];if(!p.scores)p.scores=[];if(!p.days)p.days=[];if(!p.mistakes)p.mistakes={};
   const dayNum=p.sessions.length+1;
-  p.sessions.push({day:dayNum,sid:SESSIONS[state.sessionIdx].id,score:pct,date:new Date().toDateString()});
+  const wrongItems=state.answers.filter(a=>!a.correct).map(a=>({id:a.id,pool:a.pool,userAnswer:a.userAnswer}));
+  const sid=state.sessionIdx>=0?SESSIONS[state.sessionIdx].id:-1;
+  p.sessions.push({day:dayNum,sid,score:pct,date:new Date().toDateString(),wrong:wrongItems,type:state.sessionType,pool:state.sessionPool});
   p.scores.push(pct);
   p.days.push(new Date().toDateString());
+  wrongItems.forEach(w=>{p.mistakes[w.id]=(p.mistakes[w.id]||0)+1;});
   saveProgress(p);
-
-  // render results
   document.getElementById('r-grade').textContent=grade;
   document.getElementById('r-grade').style.color=GRADE_COLORS[grade]||'#fff';
   document.getElementById('r-pct').textContent=`${correct} / ${total} correct`;
   const labels={'A+':'Perfect! ¡Increíble!','A':'Excellent! ¡Muy bien!','B':'Good work! Keep going!','C':'Keep practicing — you\'re getting there!','D':'Don\'t give up — review and try again!'};
   document.getElementById('r-label').textContent=labels[grade];
   document.getElementById('r-day').textContent=`Day ${dayNum} · ${pct}% · Session complete`;
-
-  // breakdown by pool
   const pools=['grammar','vocabulary','expression','context','verb'];
-  const breakdown=document.getElementById('breakdown-rows');
-  breakdown.innerHTML='';
+  const breakdown=document.getElementById('breakdown-rows');breakdown.innerHTML='';
   pools.forEach(pool=>{
-    const poolAns=state.answers.filter(a=>a.pool===pool);
-    if(!poolAns.length) return;
+    const poolAns=state.answers.filter(a=>a.pool===pool);if(!poolAns.length)return;
     const poolCorrect=poolAns.filter(a=>a.correct).length;
     const poolPct=Math.round(poolCorrect/poolAns.length*100);
     const color=poolPct>=80?'#27AE60':poolPct>=60?'#F39C12':'#E74C3C';
@@ -820,32 +848,41 @@ function endSession(){
       <div class="br-bar"><div class="br-fill" style="width:${poolPct}%;background:${color}"></div></div>
     </div>`;
   });
-
   showScreen('results');
 }
 
 // ═══════════════════════════════════════════════════
-// REVIEW
+// REVIEW (current session)
 // ═══════════════════════════════════════════════════
 function reviewWrong(){
+  state.reviewSource='results';
   const wrong=state.answers.filter(a=>!a.correct);
+  const sub=document.getElementById('review-sub');
+  if(sub)sub.textContent='Session mistakes & explanations';
   const body=document.getElementById('review-body');
   if(!wrong.length){
     body.innerHTML='<div style="padding:30px;text-align:center;font-size:16px;color:#27AE60">🎉 No mistakes to review! Perfect session!</div>';
     showScreen('review');return;
   }
-  body.innerHTML=wrong.map(a=>{
-    const q=QB.find(qq=>qq.id===a.id);
-    if(!q) return '';
+  const p=loadProgress();
+  const lastSession=p.sessions&&p.sessions.length?p.sessions[p.sessions.length-1]:null;
+  const cards=wrong.map(a=>{
+    const q=QB.find(qq=>qq.id===a.id);if(!q)return '';
     const correctAns=q.type==='mc'?q.opts[q.ans]:q.ans;
     return `<div class="review-card">
       <div class="rc-pool">${POOL_ICONS[q.pool]} ${POOL_NAMES[q.pool]}</div>
       <div class="rc-q">${q.q}</div>
-      <div class="rc-answer-row"><span class="rc-icon">❌</span><span class="rc-label">Your answer:</span><span class="rc-val rc-wrong-val">${a.userAnswer||'(no answer)'}</span></div>
+      <div class="rc-answer-row"><span class="rc-icon">❌</span><span class="rc-label">You said:</span><span class="rc-val rc-wrong-val">${a.userAnswer||'(blank)'}</span></div>
       <div class="rc-answer-row"><span class="rc-icon">✅</span><span class="rc-label">Correct:</span><span class="rc-val rc-right-val">${correctAns}</span></div>
       <div class="rc-exp">${q.exp}</div>
     </div>`;
   }).join('');
+  const shareCard=lastSession?`<div class="share-card">
+    <div class="share-title">📤 Share with Irene</div>
+    <div class="share-text" id="share-text">${generateShareText(lastSession)}</div>
+    <button class="share-copy-btn" onclick="copyShareText()">📋 Copy for WhatsApp / Email</button>
+  </div>`:'';
+  body.innerHTML=cards+shareCard;
   showScreen('review');
 }
 
@@ -853,8 +890,7 @@ function reviewWrong(){
 // TOAST
 // ═══════════════════════════════════════════════════
 function showToast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.classList.add('show');
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),2800);
 }
 
