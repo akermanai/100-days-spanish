@@ -223,6 +223,9 @@ html,body{min-height:100vh;background:var(--light);font-family:-apple-system,Bli
       <div style="margin-top:22px">
         <div class="section-title">Session History</div>
         <div class="history-list" id="history-list"></div>
+        <div style="text-align:center;margin-top:24px;padding-bottom:8px">
+          <button onclick="resetProgress()" style="background:none;border:1px solid #ddd;border-radius:8px;padding:8px 18px;font-size:12px;color:var(--gray);cursor:pointer">🔄 Reset All Progress</button>
+        </div>
       </div>
     </div>
   </div>
@@ -892,6 +895,12 @@ function reviewWrong(){
 // ═══════════════════════════════════════════════════
 // TOAST
 // ═══════════════════════════════════════════════════
+function resetProgress(){
+  if(!confirm('Reset all progress? This will clear your session history, scores, and mistake data. Day 1 starts fresh.\n\nThis cannot be undone.'))return;
+  localStorage.removeItem('spanish100');
+  showToast('Progress reset! Welcome back to Day 1 🇪🇸');
+  renderHome();
+}
 function showToast(msg){
   const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),2800);
