@@ -579,14 +579,16 @@ function renderHistory(sessions){
   list.innerHTML=recent.map((s,i)=>{
     const realIdx=sessions.length-1-i;
     const color=s.score>=90?'#27AE60':s.score>=70?'#3498DB':s.score>=55?'#F39C12':'#E74C3C';
-    const wrongCount=s.wrong?s.wrong.length:0;
+    const hasWrongData=Array.isArray(s.wrong);
+    const wrongCount=hasWrongData?s.wrong.length:Math.round((1-s.score/100)*15);
+    const wrongLabel=hasWrongData?`${wrongCount} mistake${wrongCount!==1?'s':''}`:`~${wrongCount} missed`;
     const typeIcon=s.type==='mistakes'?' 🔥':s.pool?' 🎯':' 🎲';
     const poolLabel=s.pool?POOL_NAMES[s.pool]:'Random Mix';
     return `<div class="history-item" onclick="reviewPastSession(${realIdx})">
       <div class="hist-day" style="background:${color}20;color:${color}">D${s.day}</div>
       <div class="hist-info">
         <div class="hist-title">${typeIcon} ${poolLabel}</div>
-        <div class="hist-sub">${s.date} · ${wrongCount} mistake${wrongCount!==1?'s':''} · tap to review</div>
+        <div class="hist-sub">${s.date} · ${wrongLabel} · tap to review</div>
       </div>
       <div class="hist-score" style="color:${color}">${s.score}%</div>
     </div>`;
@@ -823,7 +825,7 @@ function endSession(){
   const p=loadProgress();
   if(!p.sessions)p.sessions=[];if(!p.scores)p.scores=[];if(!p.days)p.days=[];if(!p.mistakes)p.mistakes={};
   const dayNum=p.sessions.length+1;
-  const wrongItems=state.answers.filter(a=>!a.correct).map(a=>({id:a.id,pool:a.pool,userAnswer:a.userAnswer}));
+  const wrongItems=(state.answers||[]).filter(a=>a&&!a.correct).map(a=>({id:a.id,pool:a.pool,userAnswer:a.userAnswer||''}));
   const sid=state.sessionIdx>=0?SESSIONS[state.sessionIdx].id:-1;
   p.sessions.push({day:dayNum,sid,score:pct,date:new Date().toDateString(),wrong:wrongItems,type:state.sessionType,pool:state.sessionPool});
   p.scores.push(pct);
